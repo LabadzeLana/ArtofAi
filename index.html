@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The ART of Using AI — GeoLab</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23f5f3ef'%3EG%3C/text%3E%3Ccircle cx='24' cy='9' r='5' fill='%23E8190A'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --red: #E8190A;
+      --black: #0c0c0c;
+      --white: #f5f3ef;
+      --grey: #b0aba3;
+      --light: #ece9e3;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 4rem;
+      transition: background 0.4s, backdrop-filter 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(245,243,239,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 0 4rem;
+      gap: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 70% 50%, rgba(232,25,10,0.04) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .hero-text {
+      padding-top: 6rem;
+      padding-right: 3rem;
+      padding-bottom: 4rem;
+      opacity: 0;
+      transform: translateY(30px);
+      animation: fadeUp 0.9s ease forwards 0.2s;
+    }
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block; width: 2rem; height: 1px;
+      background: var(--red);
+    }
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 7vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+    }
+    .hero-title .red { color: var(--red); }
+    .hero-subtitle {
+      margin-top: 2.5rem;
+      font-size: 1rem;
+      line-height: 1.7;
+      color: #555;
+      max-width: 420px;
+    }
+    .hero-cta {
+      margin-top: 3rem;
+      display: inline-flex; align-items: center; gap: 1rem;
+      background: var(--black);
+      color: var(--white);
+      padding: 1rem 2.2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, gap 0.3s;
+    }
+    .hero-cta:hover { background: var(--red); gap: 1.6rem; }
+    .hero-cta-arrow { font-size: 1rem; }
+
+    .hero-visual {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      opacity: 0;
+      animation: fadeUp 1s ease forwards 0.5s;
+      padding: 2rem;
+    }
+    .hero-visual img {
+      width: 100%;
+      max-width: 520px;
+      height: auto;
+      object-fit: contain;
+      display: block;
+      mix-blend-mode: multiply;
+    }
+
+    /* ── SECTIONS SHARED ── */
+    section { padding: 7rem 4rem; }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::after {
+      content: '';
+      flex: 1; max-width: 3rem; height: 1px;
+      background: var(--red);
+    }
+    .section-heading {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      line-height: 1;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── ABOUT ── */
+    #about { background: var(--white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-top: 4rem;
+      max-width: 760px;
+    }
+    .about-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(6rem, 12vw, 14rem);
+      line-height: 1;
+      color: var(--light);
+      user-select: none;
+    }
+    .about-content p {
+      font-size: 1.1rem;
+      line-height: 1.85;
+      color: #444;
+      margin-bottom: 1.5rem;
+    }
+    .about-stats {
+      display: flex; gap: 4rem;
+      margin-top: 3rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid #ddd;
+    }
+    .stat-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem;
+      color: var(--red);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-top: 0.3rem;
+    }
+
+    /* ── AUTHORS ── */
+    #authors { background: var(--black); color: var(--white); }
+    #authors .section-label { color: var(--red); }
+    #authors .section-heading { color: var(--white); }
+    .authors-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-top: 4rem;
+      align-items: center;
+    }
+    .authors-image-wrap {
+      position: relative;
+    }
+    .authors-image-wrap img {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      mix-blend-mode: screen;
+    }
+    .authors-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(232,25,10,0.3);
+      pointer-events: none;
+    }
+    .authors-cards-col {}
+    .author-card {
+      padding: 2rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+    .author-card:first-child { border-top: 1px solid rgba(255,255,255,0.1); }
+    .author-card-top {
+      display: flex;
+      align-items: center;
+      gap: 1.4rem;
+      margin-bottom: 0.9rem;
+    }
+    .author-photo-wrap {
+      width: 180px;
+      min-width: 180px;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+    }
+    .author-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(15%);
+      transition: filter 0.4s, transform 0.4s;
+    }
+    .author-card:hover .author-photo-wrap img {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+    }
+    .author-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+      color: var(--white);
+    }
+    .author-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
+    }
+    .author-bio {
+      font-size: 0.88rem;
+      line-height: 1.75;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ── LECTURERS ── */
+    #lecturers { background: var(--light); }
+    .lecturers-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 1.5px;
+      margin-top: 4rem;
+      background: #ccc;
+    }
+    .lecturer-card {
+      background: var(--white);
+      padding: 2.5rem 2rem;
+      transition: background 0.3s;
+      cursor: default;
+    }
+    .lecturer-card:hover { background: var(--black); color: var(--white); }
+    .lecturer-avatar {
+      width: 56px; height: 56px;
+      border-radius: 50%;
+      background: var(--light);
+      border: 2px solid #ddd;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      color: var(--grey);
+      margin-bottom: 1.5rem;
+      transition: background 0.3s, border-color 0.3s, color 0.3s;
+    }
+    .lecturer-card:hover .lecturer-avatar {
+      background: var(--red);
+      border-color: var(--red);
+      color: var(--white);
+    }
+    .lecturer-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 0.35rem;
+    }
+    .lecturer-field {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--grey);
+      transition: color 0.3s;
+    }
+    .lecturer-card:hover .lecturer-field { color: rgba(255,255,255,0.5); }
+    .lecturer-desc {
+      margin-top: 1.2rem;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      color: #555;
+      transition: color 0.3s;
+    }
+    .lecturer-card:hover .lecturer-desc { color: rgba(255,255,255,0.65); }
+
+    /* ── WORKSHOPS ── */
+    #workshops { background: var(--white); }
+    .workshop-list { margin-top: 4rem; }
+    .workshop-item {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      align-items: center;
+      gap: 3rem;
+      padding: 2.5rem 0;
+      border-bottom: 1px solid #e0ddd8;
+      cursor: default;
+      transition: padding 0.3s;
+    }
+    .workshop-item:first-child { border-top: 1px solid #e0ddd8; }
+    .workshop-item:hover { padding-left: 1rem; }
+    .workshop-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3.5rem;
+      color: var(--light);
+      line-height: 1;
+      min-width: 3rem;
+      text-align: right;
+      transition: color 0.3s;
+    }
+    .workshop-item:hover .workshop-num { color: var(--red); }
+    .workshop-info {}
+    .workshop-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(232,25,10,0.07);
+      padding: 0.3rem 0.8rem;
+      display: inline-block;
+      margin-bottom: 0.8rem;
+    }
+    .workshop-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      margin-bottom: 0.7rem;
+    }
+    .workshop-desc { font-size: 0.9rem; line-height: 1.7; color: #666; max-width: 560px; }
+    .workshop-arrow {
+      font-size: 1.5rem;
+      color: #ccc;
+      transition: color 0.3s, transform 0.3s;
+    }
+    .workshop-item:hover .workshop-arrow { color: var(--red); transform: translateX(6px); }
+
+    /* ── REGISTER CTA ── */
+    .workshop-register {
+      margin-top: 4rem;
+      background: var(--black);
+      padding: 3.5rem 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .register-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      color: var(--white);
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+    .register-text {
+      font-size: 0.95rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+      max-width: 380px;
+    }
+    .register-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 1rem;
+      background: var(--red);
+      color: var(--white);
+      padding: 1.2rem 2.8rem;
+      font-size: 0.8rem;
+      font-family: 'DM Sans', sans-serif;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.3s, gap 0.3s, padding 0.3s;
+    }
+    .register-btn:hover {
+      background: var(--white);
+      color: var(--black);
+      gap: 1.6rem;
+    }
+    .register-arrow { font-size: 1rem; transition: inherit; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2rem 3rem;
+      align-items: start;
+    }
+    .footer-brand {}
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+    }
+    .footer-logo span { color: var(--red); }
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+    .footer-contact {}
+    .footer-contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.7rem;
+    }
+    .footer-email {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+    .footer-email:hover { color: var(--red); }
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .social-link:hover { color: var(--red); gap: 0.9rem; }
+    .footer-bottom {
+      grid-column: 1 / -1;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .nav-links { gap: 1.5rem; }
+      section { padding: 5rem 2rem; }
+      .hero { grid-template-columns: 1fr; padding: 8rem 2rem 4rem; text-align: center; }
+      .hero-subtitle { margin: 2rem auto 0; }
+      .hero-cta { margin: 2.5rem auto 0; }
+      .about-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .about-number { font-size: 6rem; }
+      .authors-layout { grid-template-columns: 1fr; }
+      .lecturers-grid { grid-template-columns: 1fr 1fr; }
+      .workshop-item { grid-template-columns: auto 1fr; }
+      .workshop-arrow { display: none; }
+      footer { flex-direction: column; align-items: flex-start; padding: 3rem 2rem; }
+    }
+    @media (max-width: 600px) {
+      .nav-links { display: none; }
+      .lecturers-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <a href="#" class="nav-logo">Geo<span>Lab</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#authors">Authors</a></li>
+      <li><a href="#lecturers">Lecturers</a></li>
+      <li><a href="#workshops">Workshops</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-text">
+      <div class="hero-eyebrow">GeoLab Program 2025</div>
+      <h1 class="hero-title">
+        the <span class="red">ART</span><br>of using<br><span class="red">AI</span>
+      </h1>
+      <p class="hero-subtitle">
+        A curated educational program at the intersection of human creativity and artificial intelligence — designed for curious minds ready to shape the future.
+      </p>
+    </div>
+    <div class="hero-visual">
+      <img src="visual.jpg" alt="Human and robot hands holding a flower — the art of AI" />
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-label reveal">About the Program</div>
+    <h2 class="section-heading reveal">Where Human<br>Meets Machine</h2>
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <p>
+          The ART of Using AI is an intensive educational program by GeoLab designed to bridge the gap between creative thinking and artificial intelligence. We believe AI is not a threat to human expression — it is its most powerful new medium.
+        </p>
+        <p>
+          Through lectures, live demonstrations, and collaborative workshops, participants gain practical, hands-on experience with the tools shaping our world — from generative models and language systems to AI-assisted design and decision-making.
+        </p>
+        <p>
+          The program is built for professionals, educators, designers, entrepreneurs, and anyone who wants to move from passive observer to active creator in the age of AI.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AUTHORS -->
+  <section id="authors">
+    <div class="section-label reveal">Authors</div>
+    <h2 class="section-heading reveal">The Minds<br>Behind It</h2>
+    <div class="authors-layout reveal">
+      <div class="authors-image-wrap">
+        <img src="name.jpg" alt="The ART of using AI — logotype" />
+      </div>
+      <div class="authors-cards-col">
+        <div class="author-card">
+          <div class="author-card-top">
+            <div class="author-photo-wrap">
+              <img src="Sandro.jpg" alt="Prof. Sandro Asatiani" />
+            </div>
+            <div>
+              <div class="author-name">Prof. Sandro Asatiani</div>
+              <div class="author-role">Author · Educator · Technologist</div>
+            </div>
+          </div>
+          <div class="author-bio">Sandro is an artist with a focus on artificial intelligence and media arts, based in Tbilisi, Georgia.</div>
+        </div>
+        <div class="author-card">
+          <div class="author-card-top">
+            <div class="author-photo-wrap">
+              <img src="Karl.jpeg" alt="Prof. Dr. Karl Stocker" />
+            </div>
+            <div>
+              <div class="author-name">Prof. Dr. Karl Stocker</div>
+              <div class="author-role">Historian · Educator · Researcher</div>
+            </div>
+          </div>
+          <div class="author-bio">Karl is a consultant specializing in culture and design. He resides in Graz, Austria, and also spends time in Tbilisi, Georgia.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LECTURERS -->
+
+  <section id="lecturers">
+    <div class="section-label reveal">Lecturers</div>
+    <h2 class="section-heading reveal">Learn from<br>the Professionals</h2>
+    <div class="lecturers-grid">
+      <div class="lecturer-card reveal">
+        <div class="lecturer-avatar">KN</div>
+        <div class="lecturer-name">Khatia Nodia</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </div>
+      <div class="lecturer-card reveal">
+        <div class="lecturer-avatar">BJ</div>
+        <div class="lecturer-name">Bettina Janisch</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </div>
+      <div class="lecturer-card reveal">
+        <div class="lecturer-avatar">GK</div>
+        <div class="lecturer-name">Guram Keretchashvili</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </div>
+      <div class="lecturer-card reveal">
+        <div class="lecturer-avatar">NA</div>
+        <div class="lecturer-name">Nikoloz Astamidze</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </div>
+      <div class="lecturer-card reveal">
+        <div class="lecturer-avatar">NL</div>
+        <div class="lecturer-name">Nino Latsabidze</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WORKSHOPS -->
+  <section id="workshops">
+    <div class="section-label reveal">Workshops</div>
+    <h2 class="section-heading reveal">Hands-on.<br>Real Tools.</h2>
+    <div class="workshop-list">
+      <div class="workshop-item reveal">
+        <div class="workshop-num">01</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Foundations</span>
+          <div class="workshop-title">Understanding AI — Demystified</div>
+          <div class="workshop-desc">A ground-up introduction to how AI systems work, what they can and cannot do, and why that matters for everyone — no coding required.</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </div>
+      <div class="workshop-item reveal">
+        <div class="workshop-num">02</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Creative Tools</span>
+          <div class="workshop-title">Generate, Create, Iterate</div>
+          <div class="workshop-desc">Hands-on with the leading generative AI tools for images, text, and audio. Build a small project from prompt to polished output.</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </div>
+      <div class="workshop-item reveal">
+        <div class="workshop-num">03</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Prompting</span>
+          <div class="workshop-title">The Art of the Prompt</div>
+          <div class="workshop-desc">Master the skill of communicating with AI. Learn prompt engineering principles that unlock dramatically better results across any tool.</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </div>
+      <div class="workshop-item reveal">
+        <div class="workshop-num">04</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-title">AI in Your Workflow</div>
+          <div class="workshop-desc">Map AI tools to real tasks in your own professional context. Leave with a personalised AI toolkit and an action plan.</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </div>
+      <div class="workshop-item reveal">
+        <div class="workshop-num">05</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Ethics & Critical Thinking</span>
+          <div class="workshop-title">When AI Gets It Wrong</div>
+          <div class="workshop-desc">Examine bias, hallucination, and misuse through real case studies. Develop frameworks for evaluating AI outputs critically and responsibly.</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </div>
+    </div>
+
+    <!-- REGISTRATION CTA -->
+    <div class="workshop-register reveal">
+      <div class="register-left">
+        <div class="register-label">Ready to Join?</div>
+        <p class="register-text">Seats are limited. Apply now and secure your place in the program.</p>
+      </div>
+      <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="register-btn">
+        Register for the Program <span class="register-arrow">→</span>
+      </a>
+    </div>
+
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-brand">
+      <div class="footer-logo">Geo<span>Lab</span></div>
+      <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
+    </div>
+
+    <div class="footer-contact">
+      <div class="footer-contact-label">Contact Us</div>
+      <a href="mailto:theartofAI@geolab.edu.ge">theartofAI@geolab.edu.ge</a>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        Facebook
+      </a>
+      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Instagram
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 GeoLab. All rights reserved.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-based nav style
+    document.body.classList.add('js-ready');
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    });
+
+    // Reveal on scroll
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+    reveals.forEach(el => observer.observe(el));
+
+    // Fallback: show all after 1s in case observer fails
+    setTimeout(() => {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+    }, 1000);
+  </script>
+</body>
+</html>
