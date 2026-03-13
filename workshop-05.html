@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Workshop 05: When AI Gets It Wrong — The ART of Using AI</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23f5f3ef'%3EG%3C/text%3E%3Ccircle cx='24' cy='9' r='5' fill='%23E8190A'/%3E%3C/svg%3E" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --red: #E8190A;
+      --black: #0c0c0c;
+      --white: #f5f3ef;
+      --grey: #b0aba3;
+      --light: #ece9e3;
+    }
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 4rem;
+      background: rgba(245,243,239,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      font-weight: 500;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    
+    .workshop-section {
+      flex: 1;
+      padding: 10rem 4rem 6rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .workshop-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .workshop-eyebrow::before {
+      content: '';
+      display: inline-block; width: 2rem; height: 1px;
+      background: var(--red);
+    }
+    .workshop-tag {
+      display: inline-block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(232,25,10,0.07);
+      padding: 0.3rem 0.8rem;
+      margin-bottom: 1.5rem;
+    }
+    .workshop-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.5rem;
+    }
+    .workshop-lecturer {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .workshop-lecturer span { color: var(--red); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; }
+    
+    .workshop-description {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 3.5rem;
+      white-space: pre-line;
+    }
+
+    
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 1rem;
+      padding: 1rem 2.2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .cta-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
+    .cta-secondary {
+      background: var(--black);
+      color: var(--white);
+    }
+    .cta-secondary:hover { background: var(--red); gap: 1.6rem; }
+    .cta-arrow { font-size: 1rem; }
+    
+    /* Footer styles */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 2rem 3rem;
+      align-items: start;
+    }
+    .footer-logo {
+      max-width: 150px; display: block; margin-bottom: 0.5rem;
+    }
+    .footer-logo img { width: 100%; height: auto; display: block; }
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.4);
+      letter-spacing: 0.08em;
+      line-height: 1.5;
+    }
+    .footer-contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.7rem;
+    }
+    .footer-email {
+      color: #7757E9;
+      text-decoration: none;
+      font-size: 0.88rem;
+      transition: color 0.2s;
+    }
+    .footer-email:hover { color: var(--red); }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255,255,255,0.55);
+      text-decoration: none;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      transition: color 0.2s, gap 0.2s;
+    }
+    .social-link:hover { color: var(--red); gap: 0.9rem; }
+    
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .workshop-section { padding: 8rem 2rem 4rem; }
+      footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Geo<span>Lab</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">← Back to Main Page</a></li>
+    </ul>
+  </nav>
+
+  <section class="workshop-section">
+    <div class="workshop-eyebrow">Workshop 05</div>
+    <span class="workshop-tag">Ethics & Critical Thinking</span>
+    <h1 class="workshop-title">When AI Gets It Wrong</h1>
+    <div class="workshop-lecturer">
+      <span>Lecturer :</span> Prof. Dr. Karl Stocker
+    </div>
+    <div class="workshop-description">
+      Examine bias, hallucination, and misuse through real case studies. Develop frameworks for evaluating AI outputs critically and responsibly.
+    </div>
+    <div class="cta-group">
+      <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
+        Register for the Workshop <span class="cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+  
+  <footer>
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <a href="https://www.facebook.com/GeoLabEdu" target="_blank" rel="noopener noreferrer">
+          <img src="logo.png" alt="GeoLab Logo" />
+        </a>
+      </div>
+      <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
+    </div>
+    <div class="footer-contact">
+      <div class="footer-contact-label">Contact Us</div>
+      <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
+    </div>
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
+        Facebook
+      </a>
+      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer" class="social-link">
+        LinkedIn
+      </a>
+      <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
+        Instagram
+      </a>
+    </div>
+  </footer>
+</body>
+</html>
