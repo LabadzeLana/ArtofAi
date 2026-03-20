@@ -5,8 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The ART of Using AI — GeoLab</title>
-  <link rel="icon" type="image/svg+xml"
-    href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230c0c0c'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='18' fill='%23f5f3ef'%3EG%3C/text%3E%3Ccircle cx='24' cy='9' r='5' fill='%23E8190A'/%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link
     href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap"
     rel="stylesheet" />
@@ -411,7 +410,7 @@
 
     .lecturers-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(4, 1fr);
       gap: 1.5px;
       margin-top: 4rem;
       background: #ccc;
@@ -419,7 +418,7 @@
 
     .lecturer-card {
       background: var(--white);
-      padding: 2.5rem 2rem;
+      padding: 2rem 1.5rem;
       transition: background 0.3s;
       cursor: pointer;
       text-decoration: none;
@@ -676,7 +675,7 @@
     }
 
     .footer-email {
-      color: #7757E9;
+      color: rgba(255, 255, 255, 0.55);
       text-decoration: none;
       font-size: 0.88rem;
       letter-spacing: 0.03em;
@@ -878,7 +877,7 @@
         <img src="name.jpg" alt="The ART of using AI — logotype" />
       </div>
       <div class="authors-cards-col">
-        <a href="sandro-asatiani.html" target="_blank" class="author-card">
+        <a href="sandro-asatiani.html" class="author-card">
           <div class="author-card-top">
             <div class="author-photo-wrap">
               <img src="Sandro.jpg" alt="Prof. Sandro Asatiani" />
@@ -891,7 +890,7 @@
           <div class="author-bio">Sandro is an artist with a focus on artificial intelligence and media arts, based in
             Tbilisi, Georgia.</div>
         </a>
-        <a href="karl-stoker.html" target="_blank" class="author-card">
+        <a href="karl-stoker.html" class="author-card">
           <div class="author-card-top">
             <div class="author-photo-wrap">
               <img src="Karl.jpeg" alt="Prof. Dr. Karl Stocker" />
@@ -914,39 +913,45 @@
     <div class="section-label reveal">Lecturers</div>
     <h2 class="section-heading reveal">Learn from<br>the Professionals</h2>
     <div class="lecturers-grid">
-      <a href="khatia-nodia.html" target="_blank" class="lecturer-card reveal">
+      <a href="sandro-asatiani.html" class="lecturer-card reveal">
+        <div class="lecturer-avatar">SA</div>
+        <div class="lecturer-name">Sandro Asatiani</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </a>
+      <a href="david-tschmuck.html" class="lecturer-card reveal">
+        <div class="lecturer-avatar">DT</div>
+        <div class="lecturer-name">David Angelo Tschmuck</div>
+        <div class="lecturer-field">Lecturer</div>
+        <div class="lecturer-desc"></div>
+      </a>
+      <a href="khatia-nodia.html" class="lecturer-card reveal">
         <div class="lecturer-avatar">KN</div>
         <div class="lecturer-name">Khatia Nodia</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="bettina-janisch.html" target="_blank" class="lecturer-card reveal">
+      <a href="bettina-janisch.html" class="lecturer-card reveal">
         <div class="lecturer-avatar">BJ</div>
         <div class="lecturer-name">Bettina Janisch</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="david-tschmuck.html" target="_blank" class="lecturer-card reveal">
-        <div class="lecturer-avatar">DT</div>
-        <div class="lecturer-name">David Tschmuck</div>
+      <a href="guram-keretchashvili.html" class="lecturer-card reveal">
+        <div class="lecturer-avatar">GK</div>
+        <div class="lecturer-name">Guram Keretchashvili</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="nick-astamidze.html" target="_blank" class="lecturer-card reveal">
+      <a href="nick-astamidze.html" class="lecturer-card reveal">
         <div class="lecturer-avatar">NA</div>
-        <div class="lecturer-name">Nick Astamidze</div>
+        <div class="lecturer-name">Nikoloz Astamidze</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="nino-latsabidze.html" target="_blank" class="lecturer-card reveal">
+      <a href="nino-latsabidze.html" class="lecturer-card reveal">
         <div class="lecturer-avatar">NL</div>
         <div class="lecturer-name">Nino Latsabidze</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="sandro-asatiani.html" target="_blank" class="lecturer-card reveal">
-        <div class="lecturer-avatar">SA</div>
-        <div class="lecturer-name">Sandro Asatiani</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
@@ -958,80 +963,73 @@
     <div class="section-label reveal">Workshops</div>
     <h2 class="section-heading reveal">Hands-on.<br>Real Tools.</h2>
     <div class="workshop-list">
-      <a href="workshop-01.html" target="_blank" class="workshop-item reveal">
+      <a href="workshop-01.html" class="workshop-item reveal">
         <div class="workshop-num">01</div>
         <div class="workshop-info">
           <span class="workshop-tag">Foundations</span>
-          <div class="workshop-title">Understanding AI — Demystified</div>
-          <div class="workshop-desc">A ground-up introduction to how AI systems work, what they can and cannot do, and
-            why that matters for everyone — no coding required.</div>
+          <div class="workshop-title">How to create Personal AI Assistant</div>
+          <div class="workshop-desc">Nowadays, Artificial Intelligence is becoming an integral part of our daily lives. Move beyond simple search queries and discover AI as a versatile creative partner.</div>
           <div class="workshop-lecturer">Lecturer: Prof. Sandro Asatiani</div>
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-02.html" target="_blank" class="workshop-item reveal">
+      <a href="workshop-02.html" class="workshop-item reveal">
         <div class="workshop-num">02</div>
         <div class="workshop-info">
-          <span class="workshop-tag">Creative Tools</span>
-          <div class="workshop-title">Generate, Create, Iterate</div>
-          <div class="workshop-desc">Hands-on with the leading generative AI tools for images, text, and audio. Build a
-            small project from prompt to polished output.</div>
-          <div class="workshop-lecturer">Lecturer: David Tschmuck</div>
+          <span class="workshop-tag">Critical Thinking</span>
+          <div class="workshop-title">Beyond the AI Hype – The Method of "Pessimistic Correction"</div>
+          <div class="workshop-desc">In a phase of unchecked technological euphoria, the method of "pessimistic correction" proves to be a strategic necessity to unmask manipulative tactics.</div>
+          <div class="workshop-lecturer">Lecturer: David Angelo Tschmuck</div>
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-03.html" target="_blank" class="workshop-item reveal">
+      <a href="workshop-03.html" class="workshop-item reveal">
         <div class="workshop-num">03</div>
         <div class="workshop-info">
-          <span class="workshop-tag">Prompting</span>
-          <div class="workshop-title">The Art of the Prompt</div>
-          <div class="workshop-desc">Master the skill of communicating with AI. Learn prompt engineering principles that
-            unlock dramatically better results across any tool.</div>
-          <div class="workshop-lecturer">Lecturer: Bettina Janisch</div>
-        </div>
-        <div class="workshop-arrow">→</div>
-      </a>
-      <a href="workshop-04.html" target="_blank" class="workshop-item reveal">
-        <div class="workshop-num">04</div>
-        <div class="workshop-info">
-          <span class="workshop-tag">Applied AI</span>
-          <div class="workshop-title">AI in Your Workflow</div>
-          <div class="workshop-desc">Map AI tools to real tasks in your own professional context. Leave with a
-            personalised AI toolkit and an action plan.</div>
+          <span class="workshop-tag">Creative Tools</span>
+          <div class="workshop-title">Beginner Course: AI Image Generation with Midjourney</div>
+          <div class="workshop-desc">This introductory course provides a practical overview of AI image generation using Midjourney. Participants learn how to structure effective prompts.</div>
           <div class="workshop-lecturer">Lecturer: Khatia Nodia</div>
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-05.html" target="_blank" class="workshop-item reveal">
+      <a href="workshop-04.html" class="workshop-item reveal">
+        <div class="workshop-num">04</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-title">To Be Announced</div>
+          <div class="workshop-desc">Workshop Details will be updated soon.</div>
+          <div class="workshop-lecturer">Lecturer: Bettina Janisch</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </a>
+      <a href="workshop-05.html" class="workshop-item reveal">
         <div class="workshop-num">05</div>
         <div class="workshop-info">
-          <span class="workshop-tag">Ethics & Critical Thinking</span>
-          <div class="workshop-title">When AI Gets It Wrong</div>
-          <div class="workshop-desc">Examine bias, hallucination, and misuse through real case studies. Develop
-            frameworks for evaluating AI outputs critically and responsibly.</div>
-          <div class="workshop-lecturer">Lecturer: Prof. Dr. Karl Stocker</div>
+          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-title">AI in Management</div>
+          <div class="workshop-desc">A hands-on online workshop that helps managers move beyond basic chatbot prompting and directly tackle common management challenges.</div>
+          <div class="workshop-lecturer">Lecturer: Guram Keretchashvili</div>
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-06.html" target="_blank" class="workshop-item reveal">
+      <a href="workshop-06.html" class="workshop-item reveal">
         <div class="workshop-num">06</div>
-        <div class="workshop-info">
-          <span class="workshop-tag">Critical Thinking</span>
-          <div class="workshop-title">Beyond the AI Hype – The Method of "Pessimistic Correction"</div>
-          <div class="workshop-desc">A strategic workshop by Karl Stoker to deconstruct AI results and protect strategic
-            users from manipulative tactics.</div>
-          <div class="workshop-lecturer">Lecturer: Prof. Dr. Karl Stocker</div>
-        </div>
-        <div class="workshop-arrow">→</div>
-      </a>
-      <a href="workshop-07.html" target="_blank" class="workshop-item reveal">
-        <div class="workshop-num">07</div>
         <div class="workshop-info">
           <span class="workshop-tag">Game Development</span>
           <div class="workshop-title">AI-Assisted Game Development with Unity</div>
-          <div class="workshop-desc">Integrate AI into Unity workflows for coding, asset generation, and rapid
-            prototyping with Nick Astamidze.</div>
-          <div class="workshop-lecturer">Lecturer: Nick Astamidze</div>
+          <div class="workshop-desc">This program empowers aspiring and professional game developers to leverage artificial intelligence in their Unity workflows for coding and asset generation.</div>
+          <div class="workshop-lecturer">Lecturer: Nikoloz Astamidze</div>
+        </div>
+        <div class="workshop-arrow">→</div>
+      </a>
+      <a href="workshop-07.html" class="workshop-item reveal">
+        <div class="workshop-num">07</div>
+        <div class="workshop-info">
+          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-title">To Be Announced</div>
+          <div class="workshop-desc">Workshop Details will be updated soon.</div>
+          <div class="workshop-lecturer">Lecturer: Nino Latsabidze</div>
         </div>
         <div class="workshop-arrow">→</div>
       </a>

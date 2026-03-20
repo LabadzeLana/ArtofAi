@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Guram Keretchashvili — The ART of Using AI</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' ry='16' fill='%23b0aba3'/%3E%3Ctext x='50%25' y='54%25' dominant-baseline='middle' text-anchor='middle' font-family='Georgia,serif' font-weight='700' font-size='14' fill='%23f5f3ef'%3EGK%3C/text%3E%3C/svg%3E" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -151,6 +151,7 @@
     .profile-cta-arrow { font-size: 1rem; }
     
     /* Footer styles to match the main page */
+    /* ── FOOTER ── */
     footer {
       background: var(--black);
       color: var(--white);
@@ -161,21 +162,29 @@
       gap: 2rem 3rem;
       align-items: start;
     }
+
     .footer-brand {}
+
     .footer-logo {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.6rem;
       letter-spacing: 0.1em;
     }
-    .footer-logo span { color: var(--red); }
+
+    .footer-logo span {
+      color: var(--red);
+    }
+
     .footer-tagline {
       font-size: 0.78rem;
-      color: rgba(255,255,255,0.4);
+      color: rgba(255, 255, 255, 0.4);
       letter-spacing: 0.08em;
       margin-top: 0.5rem;
       line-height: 1.5;
     }
+
     .footer-contact {}
+
     .footer-contact-label {
       font-size: 0.65rem;
       letter-spacing: 0.22em;
@@ -183,40 +192,76 @@
       color: var(--red);
       margin-bottom: 0.7rem;
     }
+
     .footer-email {
-      color: #7757E9;
+      color: rgba(255, 255, 255, 0.55);
       text-decoration: none;
       font-size: 0.88rem;
       letter-spacing: 0.03em;
       transition: color 0.2s;
     }
-    .footer-email:hover { color: var(--red); }
+
+    .footer-email:hover {
+      color: var(--red);
+    }
+
     .footer-social {
       display: flex;
       flex-direction: column;
       gap: 0.75rem;
     }
+
     .social-link {
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255, 255, 255, 0.55);
       text-decoration: none;
       font-size: 0.82rem;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       transition: color 0.2s, gap 0.2s;
     }
-    .social-link:hover { color: var(--red); gap: 0.9rem; }
+
+    .social-link:hover {
+      color: var(--red);
+      gap: 0.9rem;
+    }
+
     .footer-bottom {
       grid-column: 1 / -1;
       padding-top: 2rem;
-      border-top: 1px solid rgba(255,255,255,0.08);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 0.7rem;
-      color: rgba(255,255,255,0.25);
+      color: rgba(255, 255, 255, 0.25);
       letter-spacing: 0.06em;
     }
-    
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 2rem; }
       .profile-section { 
@@ -243,13 +288,13 @@
   <section class="profile-section">
     <div class="profile-image-wrap">
       <!-- Fallback image logic handled with onerror -->
-      <img src="GK.jpg" alt="Guram Keretchashvili" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 533\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ece9e3\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Georgia,serif\' font-weight=\'bold\' font-size=\'72\' fill=\'%23b0aba3\'%3EGK%3C/text%3E%3C/svg%3E'" />
+      <img src="Lecturers/guram-keretchashvili.jpeg" alt="Guram Keretchashvili" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 533\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ece9e3\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Georgia,serif\' font-weight=\'bold\' font-size=\'72\' fill=\'%23b0aba3\'%3EGK%3C/text%3E%3C/svg%3E'" />
     </div>
     <div class="profile-text">
       <div class="profile-eyebrow">Lecturer Profile</div>
       <h1 class="profile-title">Guram Keretchashvili</h1>
       <div class="profile-role">Lecturer</div>
-      <div class="profile-bio">Guram Keretchashvili's biography will be updated soon.</div>
+      <div class="profile-bio">Gurami Keretchashvili is an AI Engineer and Technical Lead at a Fortune 500 technology company, where he manages a deep learning team working across computer vision, NLP, and signal processing. He holds several patents and has published multiple papers. A graduate of Institut Polytechnique de Paris and San Diego State University, he is also an active AI educator, coaching Georgia's International AI Olympiad team, lecturing to high school and university students, and publishing technical articles on machine learning.</div>
     </div>
   </section>
   
@@ -262,24 +307,39 @@
       </div>
       <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
     </div>
+
     <div class="footer-contact">
       <div class="footer-contact-label">Contact Us</div>
       <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
     </div>
+
     <div class="footer-social">
       <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+        </svg>
         Facebook
       </a>
-      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer"
+        class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
+        </svg>
         LinkedIn
       </a>
       <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </svg>
         Instagram
       </a>
     </div>
+
     <div class="footer-bottom">
       <span>© 2025 GeoLab. All rights reserved.</span>
     </div>
