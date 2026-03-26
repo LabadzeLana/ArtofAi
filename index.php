@@ -1,14 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>The ART of Using AI — GeoLab</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link
-    href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap"
-    rel="stylesheet" />
+<?php 
+  $pageTitle = "The ART of Using AI — GeoLab";
+  include 'header.php'; 
+?>
   <style>
     *,
     *::before,
@@ -877,7 +870,7 @@
         <img src="name.jpg" alt="The ART of using AI — logotype" />
       </div>
       <div class="authors-cards-col">
-        <a href="sandro-asatiani.html" class="author-card">
+        <a href="sandro-asatiani" class="author-card">
           <div class="author-card-top">
             <div class="author-photo-wrap">
               <img src="Sandro.jpg" alt="Prof. Sandro Asatiani" />
@@ -890,7 +883,7 @@
           <div class="author-bio">Sandro is an artist with a focus on artificial intelligence and media arts, based in
             Tbilisi, Georgia.</div>
         </a>
-        <a href="karl-stoker.html" class="author-card">
+        <a href="karl-stoker" class="author-card">
           <div class="author-card-top">
             <div class="author-photo-wrap">
               <img src="Karl.jpeg" alt="Prof. Dr. Karl Stocker" />
@@ -913,43 +906,43 @@
     <div class="section-label reveal">Lecturers</div>
     <h2 class="section-heading reveal">Learn from<br>the Professionals</h2>
     <div class="lecturers-grid">
-      <a href="sandro-asatiani.html" class="lecturer-card reveal">
+      <a href="sandro-asatiani" class="lecturer-card reveal">
         <div class="lecturer-avatar">SA</div>
         <div class="lecturer-name">Sandro Asatiani</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="david-tschmuck.html" class="lecturer-card reveal">
+      <a href="david-tschmuck" class="lecturer-card reveal">
         <div class="lecturer-avatar">DT</div>
         <div class="lecturer-name">David Angelo Tschmuck</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="khatia-nodia.html" class="lecturer-card reveal">
+      <a href="khatia-nodia" class="lecturer-card reveal">
         <div class="lecturer-avatar">KN</div>
         <div class="lecturer-name">Khatia Nodia</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="bettina-janisch.html" class="lecturer-card reveal">
+      <a href="bettina-janisch" class="lecturer-card reveal">
         <div class="lecturer-avatar">BJ</div>
         <div class="lecturer-name">Bettina Janisch</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="guram-keretchashvili.html" class="lecturer-card reveal">
+      <a href="guram-keretchashvili" class="lecturer-card reveal">
         <div class="lecturer-avatar">GK</div>
         <div class="lecturer-name">Guram Keretchashvili</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="nick-astamidze.html" class="lecturer-card reveal">
+      <a href="nick-astamidze" class="lecturer-card reveal">
         <div class="lecturer-avatar">NA</div>
         <div class="lecturer-name">Nikoloz Astamidze</div>
         <div class="lecturer-field">Lecturer</div>
         <div class="lecturer-desc"></div>
       </a>
-      <a href="nino-latsabidze.html" class="lecturer-card reveal">
+      <a href="nino-latsabidze" class="lecturer-card reveal">
         <div class="lecturer-avatar">NL</div>
         <div class="lecturer-name">Nino Latsabidze</div>
         <div class="lecturer-field">Lecturer</div>
@@ -963,7 +956,7 @@
     <div class="section-label reveal">Workshops</div>
     <h2 class="section-heading reveal">Hands-on.<br>Real Tools.</h2>
     <div class="workshop-list">
-      <a href="workshop-01.html" class="workshop-item reveal">
+      <a href="workshop-01" class="workshop-item reveal">
         <div class="workshop-num">01</div>
         <div class="workshop-info">
           <span class="workshop-tag">Foundations</span>
@@ -973,7 +966,7 @@
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-02.html" class="workshop-item reveal">
+      <a href="workshop-02" class="workshop-item reveal">
         <div class="workshop-num">02</div>
         <div class="workshop-info">
           <span class="workshop-tag">Critical Thinking</span>
@@ -983,7 +976,7 @@
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-03.html" class="workshop-item reveal">
+      <a href="workshop-03" class="workshop-item reveal">
         <div class="workshop-num">03</div>
         <div class="workshop-info">
           <span class="workshop-tag">Creative Tools</span>
@@ -993,7 +986,7 @@
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-04.html" class="workshop-item reveal">
+      <a href="workshop-04" class="workshop-item reveal">
         <div class="workshop-num">04</div>
         <div class="workshop-info">
           <span class="workshop-tag">Applied AI</span>
@@ -1003,7 +996,7 @@
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-05.html" class="workshop-item reveal">
+      <a href="workshop-05" class="workshop-item reveal">
         <div class="workshop-num">05</div>
         <div class="workshop-info">
           <span class="workshop-tag">Applied AI</span>
@@ -1013,7 +1006,7 @@
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-06.html" class="workshop-item reveal">
+      <a href="workshop-06" class="workshop-item reveal">
         <div class="workshop-num">06</div>
         <div class="workshop-info">
           <span class="workshop-tag">Game Development</span>
@@ -1023,7 +1016,7 @@
         </div>
         <div class="workshop-arrow">→</div>
       </a>
-      <a href="workshop-07.html" class="workshop-item reveal">
+      <a href="workshop-07" class="workshop-item reveal">
         <div class="workshop-num">07</div>
         <div class="workshop-info">
           <span class="workshop-tag">Applied AI</span>
@@ -1048,53 +1041,7 @@
 
   </section>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-brand">
-      <div class="footer-logo" style="max-width: 150px; display: block; margin-bottom: 0.5rem;">
-        <a href="https://www.facebook.com/GeoLabEdu" target="_blank" rel="noopener noreferrer">
-          <img src="logo.png" alt="GeoLab Logo" style="width: 100%; height: auto; display: block;" />
-        </a>
-      </div>
-      <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
-    </div>
-
-    <div class="footer-contact">
-      <div class="footer-contact-label">Contact Us</div>
-      <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
-    </div>
-
-    <div class="footer-social">
-      <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-        Facebook
-      </a>
-      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer"
-        class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect x="2" y="9" width="4" height="12" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-        LinkedIn
-      </a>
-      <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-        Instagram
-      </a>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2025 GeoLab. All rights reserved.</span>
-    </div>
-  </footer>
+<?php include 'footer.php'; ?>
 
   <script>
     // Scroll-based nav style

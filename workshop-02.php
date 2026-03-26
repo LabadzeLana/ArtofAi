@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Workshop 05: When AI Gets It Wrong — The ART of Using AI</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<?php 
+  $pageTitle = "Workshop 02: Generate, Create, Iterate — The ART of Using AI";
+  include "header.php"; 
+?>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -263,21 +259,33 @@
 </head>
 <body>
   <nav id="nav">
-    <a href="index.html" class="nav-logo">Geo<span>Lab</span></a>
+    <a href="./" class="nav-logo">Geo<span>Lab</span></a>
     <ul class="nav-links">
-      <li><a href="index.html">← Back to Main Page</a></li>
+      <li><a href="./">← Back to Main Page</a></li>
     </ul>
   </nav>
 
   <section class="workshop-section">
-    <div class="workshop-eyebrow">Workshop 05</div>
-    <span class="workshop-tag">Applied AI</span>
-    <h1 class="workshop-title">AI in Management</h1>
+    <div class="workshop-eyebrow">Workshop 02</div>
+    <span class="workshop-tag">Critical Thinking</span>
+    <h1 class="workshop-title">Beyond the AI Hype – The Method of "Pessimistic Correction"</h1>
     <div class="workshop-lecturer">
-      <span>Lecturer :</span> <a href="guram-keretchashvili.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--red);">Guram Keretchashvili</a>
+      <span>Lecturer :</span> <a href="david-tschmuck" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--red);">David Angelo Tschmuck</a>
     </div>
     <div class="workshop-description">
-      A hands-on online workshop that helps managers move beyond basic chatbot prompting and directly tackle common management challenges such as information overload, meeting fatigue, writing bottlenecks, and slow decision-making. Through interactive exercises and practical examples, participants will learn how to automate routine tasks, structure complex data, and draft strategic documents using AI. By the end, participants will know not just how to prompt AI, but how to use the right AI product for the right management job.
+      Strategic Necessity in Technological Euphoria
+In a phase of unchecked technological euphoria, Stocker's method of "pessimistic correction" proves to be a strategic necessity. His contribution forms the moral backbone of the book by marking the system's limits where tech companies' marketing suggests omniscience. Stocker condenses complex philosophical risks into concise sentences that act as intellectual stumbling blocks. In the workshop, these sentences become tools to deconstruct supposedly objective AI results. Discussed are the limits of machine thinking, the illusion of control, social exclusion, the dangers of superintelligence, and the dampening of creative potential. These theoretical "warnings" are not endpoints but methodical interventions that mark the transition from naive tool use to reflective control competence.
+
+Unmasking Manipulative Tactics
+Stocker's pessimism is thus not a "brake on progress," but a competence that protects strategic users from succumbing to the "illusion of predictability": Statistical predictive ability must not be confused with capturing reality. A central motif of his critique is the exposure of manipulative tactics. AI platforms are designed to simulate a "pseudo-friendship"—for example, through flattering psychological profiles—to increase user binding to the system. Sovereignty begins where this emotional manipulation is recognized and named as a customer retention instrument.
+
+Workshop Goals: From Consumer to Director
+The workshop aims to anchor three core messages so that participants do not naively consume AI but steer it sovereignly:
+• From User to Filter Strategist: Since AI models tend to "hallucinate," trust is not a strategic asset. Sovereignty means taking on the role of an incorruptible fact-checker and editor.
+• Develop Contextual Resilience: Machines fail at cultural nuances, ambiguities, and irony. Strategists must consistently embed AI results in specific socio-ethical contexts.
+• Preserve Creative Autonomy: AI is an efficient assistant but must never become the source of strategic vision. Delegating core competencies to AI inevitably leads to intellectual dependency.
+
+Through this critical reflection, participants transform from passive consumers into active directors of their own practice, who know the technology's limits—and can therefore safely and responsibly harness its potential.
     </div>
     <div class="cta-group">
       <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
@@ -286,51 +294,6 @@
     </div>
   </section>
   
-  <footer>
-    <div class="footer-brand">
-      <div class="footer-logo" style="max-width: 150px; display: block; margin-bottom: 0.5rem;">
-        <a href="https://www.facebook.com/GeoLabEdu" target="_blank" rel="noopener noreferrer">
-          <img src="logo.png" alt="GeoLab Logo" style="width: 100%; height: auto; display: block;" />
-        </a>
-      </div>
-      <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
-    </div>
-
-    <div class="footer-contact">
-      <div class="footer-contact-label">Contact Us</div>
-      <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
-    </div>
-
-    <div class="footer-social">
-      <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-        Facebook
-      </a>
-      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer"
-        class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect x="2" y="9" width="4" height="12" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-        LinkedIn
-      </a>
-      <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-        Instagram
-      </a>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2025 GeoLab. All rights reserved.</span>
-    </div>
-  </footer>
+  <?php include "footer.php"; ?>
 </body>
 </html>

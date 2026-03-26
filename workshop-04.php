@@ -1,11 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Workshop 06: Beyond the AI Hype – The Method of 'Pessimistic Correction' — The ART of Using AI</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
+<?php 
+  $pageTitle = "Workshop 04: AI in Your Workflow — The ART of Using AI";
+  include "header.php"; 
+?>
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     :root {
@@ -263,30 +259,21 @@
 </head>
 <body>
   <nav id="nav">
-    <a href="index.html" class="nav-logo">Geo<span>Lab</span></a>
+    <a href="./" class="nav-logo">Geo<span>Lab</span></a>
     <ul class="nav-links">
-      <li><a href="index.html">← Back to Main Page</a></li>
+      <li><a href="./">← Back to Main Page</a></li>
     </ul>
   </nav>
 
   <section class="workshop-section">
-    <div class="workshop-eyebrow">Workshop 06</div>
-    <span class="workshop-tag">Game Development</span>
-    <h1 class="workshop-title">AI-Assisted Game Development with Unity</h1>
+    <div class="workshop-eyebrow">Workshop 04</div>
+    <span class="workshop-tag">Applied AI</span>
+    <h1 class="workshop-title">To Be Announced</h1>
     <div class="workshop-lecturer">
-      <span>Lecturer :</span> <a href="nick-astamidze.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--red);">Nikoloz Astamidze</a>
+      <span>Lecturer :</span> <a href="bettina-janisch" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--red);">Bettina Janisch</a>
     </div>
     <div class="workshop-description">
-      This program empowers aspiring and professional game developers to leverage artificial intelligence in their Unity workflows. Participants will explore how AI can assist in coding gameplay mechanics, generating creative assets, and accelerating the prototyping process. Through practical examples and guided exercises, they will gain skills to integrate AI as a creative and productivity partner in their game projects.
-
-<b>Workshop Goals:</b>
-• Understand the role of AI in modern game development workflows.
-• Learn how to use AI to generate gameplay code and automate repetitive programming tasks.
-• Discover AI tools for creating game art and assets, such as characters, textures, and environments.
-• Build a basic game prototype by combining AI-generated code and assets in Unity.
-• Gain confidence in using AI as a collaborative tool to streamline and elevate their game development process.
-
-<b>Tools:</b> Claude Code, Comfy UI
+      Workshop details will be updated soon.
     </div>
     <div class="cta-group">
       <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
@@ -295,51 +282,6 @@
     </div>
   </section>
   
-  <footer>
-    <div class="footer-brand">
-      <div class="footer-logo" style="max-width: 150px; display: block; margin-bottom: 0.5rem;">
-        <a href="https://www.facebook.com/GeoLabEdu" target="_blank" rel="noopener noreferrer">
-          <img src="logo.png" alt="GeoLab Logo" style="width: 100%; height: auto; display: block;" />
-        </a>
-      </div>
-      <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
-    </div>
-
-    <div class="footer-contact">
-      <div class="footer-contact-label">Contact Us</div>
-      <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
-    </div>
-
-    <div class="footer-social">
-      <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
-        </svg>
-        Facebook
-      </a>
-      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer"
-        class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect x="2" y="9" width="4" height="12" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-        LinkedIn
-      </a>
-      <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-          stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
-        </svg>
-        Instagram
-      </a>
-    </div>
-
-    <div class="footer-bottom">
-      <span>© 2025 GeoLab. All rights reserved.</span>
-    </div>
-  </footer>
+  <?php include "footer.php"; ?>
 </body>
 </html>
