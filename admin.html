@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — The ART of Using AI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --red: #E8190A;
+            --black: #0c0c0c;
+            --white: #f5f3ef;
+            --grey: #b0aba3;
+            --light: #ece9e3;
+            --glass: rgba(255, 255, 255, 0.8);
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: var(--white);
+            color: var(--black);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+            overflow-x: hidden;
+            display: flex;
+        }
+
+        /* Sidebar Navigation */
+        aside {
+            width: 280px;
+            height: 100vh;
+            background: var(--black);
+            color: var(--white);
+            padding: 3rem 2rem;
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            gap: 4rem;
+        }
+
+        .admin-logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 0.1em;
+        }
+        .admin-logo span { color: var(--red); }
+
+        nav ul { list-style: none; display: flex; flex-direction: column; gap: 1.5rem; }
+        nav li {
+            font-size: 0.85rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            opacity: 0.5;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        nav li.active { opacity: 1; color: var(--red); font-weight: 500; }
+        nav li:hover { opacity: 1; transform: translateX(5px); }
+
+        /* Main Content Area */
+        main {
+            flex: 1;
+            margin-left: 280px;
+            padding: 4rem 6rem;
+            min-height: 100vh;
+        }
+
+        header {
+            margin-bottom: 4rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3.5rem;
+            letter-spacing: 0.02em;
+            line-height: 1;
+        }
+
+        .content-section { display: none; animation: fadeIn 0.6s ease forwards; }
+        .content-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Items Grid */
+        .items-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0,0,0,0.05);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: var(--transition);
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+        .card:hover { transform: translateY(-5px); border-color: var(--red); box-shadow: 0 20px 40px rgba(0,0,0,0.03); }
+        .card::before {
+            content: '';
+            position: absolute; top: 0; left: 0; width: 4px; height: 0;
+            background: var(--red); transition: var(--transition);
+        }
+        .card:hover::before { height: 100%; }
+
+        .card-eyebrow { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.5rem; }
+        .card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; margin-bottom: 1rem; }
+        .card-meta { font-size: 0.75rem; color: var(--red); font-weight: 500; margin-bottom: 1rem; }
+        .card-snippet { font-size: 0.85rem; color: #666; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; line-clamp: 3; overflow: hidden; }
+
+        /* Modal / Editor Overlay */
+        .modal {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(12,12,12,0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            padding: 4rem;
+        }
+        .modal.active { display: flex; }
+
+        .editor-container {
+            background: var(--white);
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            max-height: 90vh;
+            padding: 4rem;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .close-modal {
+            position: absolute; top: 2rem; right: 2rem;
+            font-size: 1.5rem; cursor: pointer; color: var(--black); opacity: 0.5;
+            transition: var(--transition); border: none; background: none;
+        }
+        .close-modal:hover { opacity: 1; transform: rotate(90deg); }
+
+        .editor-header { margin-bottom: 3rem; }
+        .editor-title { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; margin-bottom: 0.5rem; }
+        .editor-subtitle { font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--red); }
+
+        form { display: flex; flex-direction: column; gap: 2rem; }
+        .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+        label { font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--grey); font-weight: 700; }
+        input, textarea {
+            background: #f9f9f9;
+            border: 1px solid #eee;
+            padding: 1rem;
+            font-family: inherit;
+            font-size: 1rem;
+            color: var(--black);
+            transition: var(--transition);
+        }
+        textarea { min-height: 250px; resize: vertical; line-height: 1.8; }
+        input:focus, textarea:focus { outline: none; border-color: var(--red); background: #fff; }
+
+        .save-btn {
+            background: var(--red);
+            color: var(--white);
+            border: none;
+            padding: 1.2rem;
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+        }
+        .save-btn:hover { background: var(--black); letter-spacing: 0.3em; }
+
+        /* Feedback UI */
+        .toast {
+            position: fixed; bottom: 2rem; right: 2rem;
+            padding: 1rem 2rem; background: var(--black); color: var(--white);
+            font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase;
+            border-bottom: 3px solid var(--red);
+            transform: translateY(100px);
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            z-index: 1100;
+        }
+        .toast.visible { transform: translateY(0); }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: var(--white); }
+        ::-webkit-scrollbar-thumb { background: var(--grey); border-radius: 10px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--red); }
+
+    </style>
+</head>
+<body>
+
+    <aside>
+        <div class="admin-logo">ART<span>UI</span></div>
+        <nav>
+            <ul>
+                <li class="active" onclick="showSection('workshops')">Workshops</li>
+                <li onclick="showSection('lecturers')">Lecturers</li>
+            </ul>
+        </nav>
+    </aside>
+
+    <main>
+        <header>
+            <h1 id="page-title">Workshops</h1>
+        </header>
+
+        <section id="workshops" class="content-section active">
+            <div class="items-grid" id="workshops-list">
+                <!-- Data injected here -->
+            </div>
+        </section>
+
+        <section id="lecturers" class="content-section">
+            <div class="items-grid" id="lecturers-list">
+                <!-- Data injected here -->
+            </div>
+        </section>
+    </main>
+
+    <!-- Modal Editor -->
+    <div class="modal" id="editor-modal">
+        <div class="editor-container">
+            <button class="close-modal" onclick="closeEditor()">&times;</button>
+            <div class="editor-header">
+                <span id="edit-eyebrow" class="editor-subtitle"></span>
+                <h2 id="edit-title" class="editor-title">Edit Item</h2>
+            </div>
+            <form id="edit-form" onsubmit="saveItem(event)">
+                <input type="hidden" id="edit-id">
+                <input type="hidden" id="edit-type">
+                
+                <div class="form-group" id="title-group">
+                    <label id="title-label">Title / Name</label>
+                    <input type="text" id="input-title" required>
+                </div>
+
+                <div class="form-group" id="role-group" style="display:none">
+                    <label>Role / Subtitle</label>
+                    <input type="text" id="input-role">
+                </div>
+
+                <div class="form-group">
+                    <label id="description-label">Description / Bio</label>
+                    <textarea id="input-description" required></textarea>
+                </div>
+
+                <button type="submit" class="save-btn">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast">Changes saved successfully</div>
+
+    <script>
+        let currentData = { workshops: [], lecturers: [] };
+
+        async function loadData() {
+            try {
+                const [wRes, lRes] = await Promise.all([
+                    fetch('http://localhost:3000/api/workshops'),
+                    fetch('http://localhost:3000/api/lecturers')
+                ]);
+                currentData.workshops = await wRes.json();
+                currentData.lecturers = await lRes.json();
+                renderAll();
+            } catch (err) {
+                console.error('Failed to load data:', err);
+                showToast('Error loading data', true);
+            }
+        }
+
+        function renderAll() {
+            renderWorkshops();
+            renderLecturers();
+        }
+
+        function renderWorkshops() {
+            const list = document.getElementById('workshops-list');
+            list.innerHTML = currentData.workshops.map(w => `
+                <div class="card" onclick="openEditor('workshop', '${w.id}')">
+                    <div class="card-eyebrow">${w.eyebrow}</div>
+                    <div class="card-title">${w.title}</div>
+                    <div class="card-meta">Lecturer: ${w.lecturer}</div>
+                    <div class="card-snippet">${w.description}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderLecturers() {
+            const list = document.getElementById('lecturers-list');
+            list.innerHTML = currentData.lecturers.map(l => `
+                <div class="card" onclick="openEditor('lecturer', '${l.id}')">
+                    <div class="card-eyebrow">Lecturer Profile</div>
+                    <div class="card-title">${l.name}</div>
+                    <div class="card-meta">${l.role}</div>
+                    <div class="card-snippet">${l.bio}</div>
+                </div>
+            `).join('');
+        }
+
+        function showSection(sectionId) {
+            document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+            document.getElementById(sectionId).classList.add('active');
+            
+            document.querySelectorAll('nav li').forEach(li => li.classList.remove('active'));
+            document.querySelector(`nav li[onclick="showSection('${sectionId}')"]`).classList.add('active');
+            
+            document.getElementById('page-title').textContent = sectionId.charAt(0).toUpperCase() + sectionId.slice(1);
+        }
+
+        function openEditor(type, id) {
+            const modal = document.getElementById('editor-modal');
+            const item = type === 'workshop' 
+                ? currentData.workshops.find(w => w.id === id)
+                : currentData.lecturers.find(l => l.id === id);
+
+            document.getElementById('edit-id').value = id;
+            document.getElementById('edit-type').value = type;
+
+            if (type === 'workshop') {
+                document.getElementById('edit-eyebrow').textContent = item.eyebrow;
+                document.getElementById('edit-title').textContent = item.title;
+                document.getElementById('input-title').value = item.title;
+                document.getElementById('input-description').value = item.description;
+                document.getElementById('role-group').style.display = 'none';
+                document.getElementById('title-label').textContent = 'Workshop Title';
+                document.getElementById('description-label').textContent = 'Workshop Description';
+            } else {
+                document.getElementById('edit-eyebrow').textContent = 'Lecturer Profile';
+                document.getElementById('edit-title').textContent = item.name;
+                document.getElementById('input-title').value = item.name;
+                document.getElementById('input-role').value = item.role;
+                document.getElementById('input-description').value = item.bio;
+                document.getElementById('role-group').style.display = 'flex';
+                document.getElementById('title-label').textContent = 'Full Name';
+                document.getElementById('description-label').textContent = 'Biography';
+            }
+
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeEditor() {
+            document.getElementById('editor-modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        async function saveItem(e) {
+            e.preventDefault();
+            const id = document.getElementById('edit-id').value;
+            const type = document.getElementById('edit-type').value;
+            
+            const data = type === 'workshop' ? {
+                title: document.getElementById('input-title').value,
+                description: document.getElementById('input-description').value
+            } : {
+                name: document.getElementById('input-title').value,
+                role: document.getElementById('input-role').value,
+                bio: document.getElementById('input-description').value
+            };
+
+            try {
+                const res = await fetch('http://localhost:3000/api/save', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ id, type, data })
+                });
+
+                if (res.ok) {
+                    showToast('Changes saved successfully');
+                    closeEditor();
+                    loadData(); // Refresh list
+                } else {
+                    showToast('Failed to save changes', true);
+                }
+            } catch (err) {
+                console.error('Save error:', err);
+                showToast('Network error', true);
+            }
+        }
+
+        function showToast(msg, isError = false) {
+            const toast = document.getElementById('toast');
+            toast.textContent = msg;
+            toast.style.borderColor = isError ? '#ff4b2b' : 'var(--red)';
+            toast.classList.add('visible');
+            setTimeout(() => toast.classList.remove('visible'), 3000);
+        }
+
+        // Initialize
+        loadData();
+    </script>
+</body>
+</html>
