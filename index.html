@@ -239,79 +239,54 @@
       letter-spacing: 0.03em;
     }
 
-    /* ── ABOUT ── */
-    #about {
+    /* ── ABOUT + AUTHORS (merged) ── */
+    #about-authors {
       background: var(--white);
+      color: var(--black);
     }
 
-    .about-grid {
+    #about-authors .section-label {
+      color: var(--red);
+    }
+
+    #about-authors .section-heading {
+      color: var(--black);
+    }
+
+    .about-authors-layout {
       display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
       margin-top: 4rem;
-      max-width: 760px;
+      align-items: start;
     }
 
-    .about-number {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(6rem, 12vw, 14rem);
-      line-height: 1;
-      color: var(--light);
-      user-select: none;
+    /* Left: About the Program */
+    .about-col .section-label {
+      color: var(--red);
+    }
+
+    .about-col .section-heading {
+      color: var(--black);
     }
 
     .about-content p {
-      font-size: 1.1rem;
+      font-size: 1rem;
       line-height: 1.85;
-      color: #444;
+      color: #555;
       margin-bottom: 1.5rem;
     }
 
-    .about-stats {
-      display: flex;
-      gap: 4rem;
-      margin-top: 3rem;
-      padding-top: 2.5rem;
-      border-top: 1px solid #ddd;
-    }
-
-    .stat-num {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 3rem;
-      color: var(--red);
-      line-height: 1;
-    }
-
-    .stat-label {
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--grey);
-      margin-top: 0.3rem;
-    }
-
-    /* ── AUTHORS ── */
-    #authors {
-      background: var(--black);
-      color: var(--white);
-    }
-
-    #authors .section-label {
+    /* Right: Authors */
+    .authors-col .section-label {
       color: var(--red);
     }
 
-    #authors .section-heading {
-      color: var(--white);
+    .authors-col .section-heading {
+      color: var(--black);
     }
 
-    .authors-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 4rem;
-      margin-top: 4rem;
-      align-items: center;
-    }
-
+    /* keep old author card styles but remove unused layout */
     .authors-image-wrap {
       position: relative;
     }
@@ -335,18 +310,18 @@
 
     .author-card {
       padding: 2rem 0;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
       display: block;
       text-decoration: none;
       transition: background 0.3s;
     }
 
     .author-card:first-child {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
     }
 
     .author-card:hover {
-      background: rgba(255, 255, 255, 0.03);
+      background: rgba(0, 0, 0, 0.03);
     }
 
     .author-card-top {
@@ -385,7 +360,7 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
       margin-bottom: 0.35rem;
-      color: var(--white);
+      color: var(--black);
     }
 
     .author-role {
@@ -398,17 +373,35 @@
     .author-bio {
       font-size: 0.88rem;
       line-height: 1.75;
-      color: rgba(255, 255, 255, 0.55);
+      color: #666;
     }
 
-    /* ── LECTURERS ── */
-    #lecturers {
+    /* ── LECTURERS + WORKSHOPS (merged) ── */
+    #lecturers-workshops {
       background: var(--light);
+    }
+
+    .lec-work-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.3fr;
+      gap: 5rem;
+      margin-top: 4rem;
+      align-items: start;
+    }
+
+    .lecturers-col .section-label,
+    .workshops-col .section-label {
+      color: var(--red);
+    }
+
+    .lecturers-col .section-heading,
+    .workshops-col .section-heading {
+      color: var(--black);
     }
 
     .lecturers-grid {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(2, 1fr);
       gap: 1.5px;
       margin-top: 4rem;
       background: #ccc;
@@ -484,48 +477,298 @@
       color: rgba(255, 255, 255, 0.65);
     }
 
-    /* ── WORKSHOPS ── */
+    /* ── WORKSHOPS (Online) ── */
     #workshops {
       background: var(--white);
     }
 
-    .workshop-list {
-      margin-top: 4rem;
+    /* ── GRAZ HYBRID WORKSHOPS ── */
+    #graz-workshops {
+      background: var(--light);
     }
 
-    .workshop-item {
-      display: grid;
-      grid-template-columns: auto 1fr auto;
+    .graz-intro {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      max-width: 680px;
+    }
+
+    .graz-intro .location-badge {
+      display: inline-flex;
       align-items: center;
-      gap: 3rem;
-      padding: 2.5rem 0;
-      border-bottom: 1px solid #e0ddd8;
-      cursor: pointer;
-      text-decoration: none;
-      color: inherit;
-      transition: padding 0.3s;
+      gap: 0.4rem;
+      background: rgba(232, 25, 10, 0.08);
+      color: var(--red);
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 0.9rem;
+      margin-top: 1rem;
     }
 
-    .workshop-item:first-child {
-      border-top: 1px solid #e0ddd8;
+    .graz-workshop-grid {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
     }
 
-    .workshop-item:hover {
-      padding-left: 1rem;
+    .graz-workshop-card {
+      background: var(--white);
+      border: 1px solid #e0ddd8;
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      transition: box-shadow 0.4s, transform 0.4s;
+      position: relative;
+      overflow: hidden;
     }
 
-    .workshop-num {
+    .graz-workshop-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--red);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .graz-workshop-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .graz-workshop-card:hover {
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      transform: translateY(-4px);
+    }
+
+    .graz-card-number {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3.5rem;
-      color: var(--light);
       line-height: 1;
-      min-width: 3rem;
-      text-align: right;
+      color: rgba(0,0,0,0.06);
+      letter-spacing: 0.05em;
+    }
+
+    .graz-card-tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--red);
+      padding: 0.3rem 0.9rem;
+      display: inline-block;
+      align-self: flex-start;
+    }
+
+    .graz-card-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem;
+      letter-spacing: 0.03em;
+      line-height: 1.1;
+      color: var(--black);
+    }
+
+    .graz-card-desc {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: #666;
+    }
+
+    .graz-card-meta {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #eee;
+    }
+
+    .graz-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--grey);
+    }
+
+    .graz-meta-item svg {
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 900px) {
+      .graz-workshop-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ── VIDEO COURSE ── */
+    #video-course {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    #video-course .section-label {
+      color: var(--red);
+    }
+
+    #video-course .section-heading {
+      color: var(--white);
+    }
+
+    .video-course-intro {
+      margin-top: 1.5rem;
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255, 255, 255, 0.5);
+      max-width: 600px;
+    }
+
+    .video-grid {
+      margin-top: 3.5rem;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: rgba(255,255,255,0.08);
+    }
+
+    .video-card {
+      background: rgba(255, 255, 255, 0.04);
+      padding: 2.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      transition: background 0.4s;
+      position: relative;
+    }
+
+    .video-card:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .video-card-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s, border-color 0.3s;
+    }
+
+    .video-card:hover .video-card-icon {
+      background: var(--red);
+      border-color: var(--red);
+    }
+
+    .video-card-icon svg {
+      color: rgba(255,255,255,0.5);
       transition: color 0.3s;
     }
 
-    .workshop-item:hover .workshop-num {
+    .video-card:hover .video-card-icon svg {
+      color: var(--white);
+    }
+
+    .video-card-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.2em;
       color: var(--red);
+    }
+
+    .video-card-title {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--white);
+      letter-spacing: 0.03em;
+    }
+
+    .video-card-status {
+      margin-top: auto;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .video-card-status .dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+    }
+
+    .video-card-status .dot.live {
+      background: #4caf50;
+      box-shadow: 0 0 6px rgba(76, 175, 80, 0.4);
+    }
+
+    @media (max-width: 900px) {
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .workshop-list {
+      margin-top: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .workshop-item {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+      padding: 2rem;
+      border: 1px solid #e0ddd8;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .workshop-item:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.08);
+      transform: translateY(-3px);
+    }
+
+    .workshop-photo {
+      width: 80px;
+      min-width: 80px;
+      height: 107px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .workshop-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.4s, transform 0.4s;
+    }
+
+    .workshop-item:hover .workshop-photo img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
     }
 
     .workshop-info {}
@@ -631,10 +874,92 @@
     }
 
     /* ── FOOTER ── */
+    /* ── BOOK ── */
+    #book {
+      background: var(--light);
+    }
+
+    .book-layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .book-cover-wrap {
+      position: relative;
+      box-shadow: 12px 20px 50px rgba(0,0,0,0.18);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+
+    .book-cover-wrap:hover {
+      transform: translateY(-6px) rotate(1deg);
+      box-shadow: 18px 28px 60px rgba(0,0,0,0.25);
+    }
+
+    .book-cover-wrap img {
+      width: 100%;
+      display: block;
+    }
+
+    .book-text .section-label { color: var(--red); }
+    .book-text .section-heading { color: var(--black); margin-bottom: 1.5rem; }
+
+    .book-intro {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: #555;
+      margin-bottom: 2.5rem;
+    }
+
+    .book-links {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .book-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 1.2rem;
+      background: var(--black);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: background 0.3s, gap 0.3s;
+      max-width: 320px;
+    }
+
+    .book-link:hover { background: var(--red); gap: 1.8rem; }
+
+    .book-link-lang {
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: var(--red);
+      background: rgba(232,25,10,0.1);
+      padding: 0.2rem 0.6rem;
+      text-transform: uppercase;
+    }
+
+    .book-link:hover .book-link-lang {
+      color: var(--white);
+      background: rgba(255,255,255,0.2);
+    }
+
+    @media (max-width: 900px) {
+      .book-layout { grid-template-columns: 1fr; gap: 3rem; }
+      .book-cover-wrap { max-width: 240px; }
+    }
+
+    /* ── FOOTER ── */
     footer {
       background: var(--black);
       color: var(--white);
       padding: 4rem;
+      margin-top: 4rem;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       grid-template-rows: auto auto;
@@ -709,11 +1034,90 @@
 
     .footer-bottom {
       grid-column: 1 / -1;
-      padding-top: 2rem;
+      padding: 3rem 0;
       border-top: 1px solid rgba(255, 255, 255, 0.08);
       font-size: 0.7rem;
-      color: rgba(255, 255, 255, 0.25);
+      color: rgba(255, 255, 255, 0.5);
       letter-spacing: 0.06em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-bottom::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url('Episode_04.png');
+      background-size: 200px;
+      background-repeat: repeat;
+      opacity: 0.2;
+      mix-blend-mode: screen;
+      pointer-events: none;
+    }
+
+    .footer-bottom span {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── TRAINERS ── */
+    #trainers {
+      background: var(--white);
+    }
+    
+    .trainers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 3.5rem 2rem;
+      margin-top: 4rem;
+    }
+    
+    .trainer-card {
+      display: flex;
+      flex-direction: column;
+      text-decoration: none;
+      color: inherit;
+    }
+    
+    .trainer-photo-wrap {
+      width: 100%;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      margin-bottom: 1.2rem;
+    }
+    
+    .trainer-photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      filter: grayscale(15%);
+      transition: filter 0.4s, transform 0.4s;
+    }
+    
+    .trainer-card:hover .trainer-photo-wrap img {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+    }
+    
+    .trainer-name {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 0.3rem;
+      color: var(--black);
+    }
+    
+    .trainer-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--red);
     }
 
     /* ── ANIMATIONS ── */
@@ -768,25 +1172,22 @@
         margin: 2.5rem auto 0;
       }
 
-      .about-grid {
+      .lec-work-layout {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 3rem;
       }
 
-      .about-number {
-        font-size: 6rem;
-      }
-
-      .authors-layout {
+      .about-authors-layout {
         grid-template-columns: 1fr;
+        gap: 3rem;
       }
 
       .lecturers-grid {
         grid-template-columns: 1fr 1fr;
       }
 
-      .workshop-item {
-        grid-template-columns: auto 1fr;
+      .workshop-list {
+        grid-template-columns: 1fr;
       }
 
       .workshop-arrow {
@@ -818,10 +1219,12 @@
   <nav id="nav">
     <a href="index.html" class="nav-logo">Geo<span>Lab</span></a>
     <ul class="nav-links">
-      <li><a href="#about">About</a></li>
-      <li><a href="#authors">Authors</a></li>
-      <li><a href="#lecturers">Lecturers</a></li>
-      <li><a href="#workshops">Workshops</a></li>
+      <li><a href="#workshops">Online Workshops</a></li>
+      <li><a href="#graz-workshops">Graz Workshops</a></li>
+      <li><a href="#trainers">Trainers</a></li>
+      <li><a href="#about-authors">About</a></li>
+      <li><a href="#video-course">Video Course</a></li>
+      <li><a href="#book">Book</a></li>
     </ul>
   </nav>
 
@@ -842,127 +1245,13 @@
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="section-label reveal">About the Program</div>
-    <h2 class="section-heading reveal">Where Human<br>Meets Machine</h2>
-    <div class="about-grid">
-      <div class="about-content reveal">
-        <p>
-          The ART of Using AI is an intensive educational program by GeoLab designed to bridge the gap between creative
-          thinking and artificial intelligence. We believe AI is not a threat to human expression — it is its most
-          powerful new medium.
-        </p>
-        <p>
-          Through lectures, live demonstrations, and collaborative workshops, participants gain practical, hands-on
-          experience with the tools shaping our world — from generative models and language systems to AI-assisted
-          design and decision-making.
-        </p>
-        <p>
-          The program is built for professionals, educators, designers, entrepreneurs, and anyone who wants to move from
-          passive observer to active creator in the age of AI.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- AUTHORS -->
-  <section id="authors">
-    <div class="section-label reveal">Authors</div>
-    <h2 class="section-heading reveal">The Minds<br>Behind It</h2>
-    <div class="authors-layout reveal">
-      <div class="authors-image-wrap">
-        <img src="name.jpg" alt="The ART of using AI — logotype" />
-      </div>
-      <div class="authors-cards-col">
-        <a href="sandro-asatiani.html" class="author-card">
-          <div class="author-card-top">
-            <div class="author-photo-wrap">
-              <img src="Sandro.jpg" alt="Prof. Sandro Asatiani" />
-            </div>
-            <div>
-              <div class="author-name">Prof. Sandro Asatiani</div>
-              <div class="author-role">Author · Educator · Technologist</div>
-            </div>
-          </div>
-          <div class="author-bio">Sandro is an artist with a focus on artificial intelligence and media arts, based in
-            Tbilisi, Georgia.</div>
-        </a>
-        <a href="karl-stoker.html" class="author-card">
-          <div class="author-card-top">
-            <div class="author-photo-wrap">
-              <img src="Karl.jpeg" alt="Prof. Dr. Karl Stocker" />
-            </div>
-            <div>
-              <div class="author-name">Prof. Dr. Karl Stocker</div>
-              <div class="author-role">Historian · Educator · Researcher</div>
-            </div>
-          </div>
-          <div class="author-bio">Karl is a consultant specializing in culture and design. He resides in Graz, Austria,
-            and also spends time in Tbilisi, Georgia.</div>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- LECTURERS -->
-
-  <section id="lecturers">
-    <div class="section-label reveal">Lecturers</div>
-    <h2 class="section-heading reveal">Learn from<br>the Professionals</h2>
-    <div class="lecturers-grid">
-      <a href="sandro-asatiani.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">SA</div>
-        <div class="lecturer-name">Sandro Asatiani</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="david-tschmuck.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">DT</div>
-        <div class="lecturer-name">David Angelo Tschmuck</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="khatia-nodia.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">KN</div>
-        <div class="lecturer-name">Khatia Nodia</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="bettina-janisch.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">BJ</div>
-        <div class="lecturer-name">Bettina Janisch</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="guram-keretchashvili.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">GK</div>
-        <div class="lecturer-name">Guram Keretchashvili</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="nick-astamidze.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">NA</div>
-        <div class="lecturer-name">Nikoloz Astamidze</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-      <a href="nino-latsabidze.html" class="lecturer-card reveal">
-        <div class="lecturer-avatar">NL</div>
-        <div class="lecturer-name">Nino Latsabidze</div>
-        <div class="lecturer-field">Lecturer</div>
-        <div class="lecturer-desc"></div>
-      </a>
-    </div>
-  </section>
-
-  <!-- WORKSHOPS -->
+  <!-- ONLINE WORKSHOPS -->
   <section id="workshops">
-    <div class="section-label reveal">Workshops</div>
-    <h2 class="section-heading reveal">Hands-on.<br>Real Tools.</h2>
+    <div class="section-label reveal">Online Workshops</div>
+    <h2 class="section-heading reveal">Hands-on. Real Tools.</h2>
     <div class="workshop-list">
       <a href="workshop-01.html" class="workshop-item reveal">
-        <div class="workshop-num">01</div>
+        <div class="workshop-photo"><img src="Sandro.jpg" alt="Sandro Asatiani" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Foundations</span>
           <div class="workshop-title">How to create Personal AI Assistant</div>
@@ -972,7 +1261,7 @@
         <div class="workshop-arrow">→</div>
       </a>
       <a href="workshop-02.html" class="workshop-item reveal">
-        <div class="workshop-num">02</div>
+        <div class="workshop-photo"><img src="Lecturers/David Tschmuck.jpeg" alt="David Tschmuck" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Critical Thinking</span>
           <div class="workshop-title">Beyond the AI Hype – The Method of "Pessimistic Correction"</div>
@@ -982,7 +1271,7 @@
         <div class="workshop-arrow">→</div>
       </a>
       <a href="workshop-03.html" class="workshop-item reveal">
-        <div class="workshop-num">03</div>
+        <div class="workshop-photo"><img src="Lecturers/Khatia Nodia.jpeg" alt="Khatia Nodia" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Creative Tools</span>
           <div class="workshop-title">Beginner Course: AI Image Generation with Midjourney</div>
@@ -992,7 +1281,7 @@
         <div class="workshop-arrow">→</div>
       </a>
       <a href="workshop-04.html" class="workshop-item reveal">
-        <div class="workshop-num">04</div>
+        <div class="workshop-photo"><img src="Lecturers/Bettina Janisch.jpeg" alt="Bettina Janisch" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Applied AI</span>
           <div class="workshop-title">To Be Announced</div>
@@ -1002,7 +1291,7 @@
         <div class="workshop-arrow">→</div>
       </a>
       <a href="workshop-05.html" class="workshop-item reveal">
-        <div class="workshop-num">05</div>
+        <div class="workshop-photo"><img src="Lecturers/guram-keretchashvili.jpeg" alt="Guram Keretchashvili" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Applied AI</span>
           <div class="workshop-title">AI in Management</div>
@@ -1012,7 +1301,7 @@
         <div class="workshop-arrow">→</div>
       </a>
       <a href="workshop-06.html" class="workshop-item reveal">
-        <div class="workshop-num">06</div>
+        <div class="workshop-photo"><img src="Lecturers/Nick Astamidze.jpeg" alt="Nikoloz Astamidze" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Game Development</span>
           <div class="workshop-title">AI-Assisted Game Development with Unity</div>
@@ -1022,7 +1311,7 @@
         <div class="workshop-arrow">→</div>
       </a>
       <a href="workshop-07.html" class="workshop-item reveal">
-        <div class="workshop-num">07</div>
+        <div class="workshop-photo"><img src="Lecturers/Nino Latsabidze.png" alt="Nino Latsabidze" /></div>
         <div class="workshop-info">
           <span class="workshop-tag">Applied AI</span>
           <div class="workshop-title">To Be Announced</div>
@@ -1044,6 +1333,297 @@
       </a>
     </div>
 
+  </section>
+
+  <!-- GRAZ HYBRID WORKSHOPS -->
+  <section id="graz-workshops">
+    <div class="section-label reveal">Graz Hybrid Workshops</div>
+    <h2 class="section-heading reveal">Learn in Graz. Connect Globally.</h2>
+    <p class="graz-intro reveal">
+      Intensive hybrid workshops hosted in Graz, Austria — combining in-person immersion with remote accessibility. Master cutting-edge AI skills through focused, hands-on sessions.
+    </p>
+    <div class="graz-intro reveal">
+      <span class="location-badge">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Graz, Austria · Hybrid Format
+      </span>
+    </div>
+
+    <div class="graz-workshop-grid">
+
+      <!-- Workshop 1 -->
+      <div class="graz-workshop-card reveal">
+        <div class="graz-card-number">01</div>
+        <span class="graz-card-tag">Hybrid Workshop</span>
+        <div class="graz-card-title">How to Create a Personal AI Assistant</div>
+        <div class="graz-card-desc">
+          Design and build your own personal AI assistant from scratch. Learn prompt engineering, workflow automation, and how to integrate AI into your daily professional routines for maximum productivity and creativity.
+        </div>
+        <div class="graz-card-meta">
+          <div class="graz-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Graz
+          </div>
+          <div class="graz-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Date TBA
+          </div>
+          <div class="graz-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Hybrid
+          </div>
+        </div>
+      </div>
+
+      <!-- Workshop 2 -->
+      <div class="graz-workshop-card reveal">
+        <div class="graz-card-number">02</div>
+        <span class="graz-card-tag">Hybrid Workshop</span>
+        <div class="graz-card-title">How to Create Applications or Mini Programs</div>
+        <div class="graz-card-desc">
+          Discover how to use AI-powered tools to build functional applications and mini programs — even without a traditional coding background. From concept to prototype, learn the full creative development cycle.
+        </div>
+        <div class="graz-card-meta">
+          <div class="graz-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            Graz
+          </div>
+          <div class="graz-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Date TBA
+          </div>
+          <div class="graz-meta-item">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            Hybrid
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- TRAINERS -->
+  <section id="trainers">
+    <div class="section-label reveal">Trainers</div>
+    <h2 class="section-heading reveal">Meet the Experts</h2>
+    
+    <div class="trainers-grid">
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Sandro.jpg" alt="Prof. Sandro Asatiani" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Prof. Sandro Asatiani</div>
+          <div class="trainer-role">Author / Lecturer</div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Lecturers/David Tschmuck.jpeg" alt="David Angelo Tschmuck" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">David Angelo Tschmuck</div>
+          <div class="trainer-role">Lecturer</div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Lecturers/Khatia Nodia.jpeg" alt="Khatia Nodia" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Khatia Nodia</div>
+          <div class="trainer-role">Lecturer</div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Lecturers/Bettina Janisch.jpeg" alt="Bettina Janisch" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Bettina Janisch</div>
+          <div class="trainer-role">Lecturer</div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Lecturers/guram-keretchashvili.jpeg" alt="Guram Keretchashvili" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Guram Keretchashvili</div>
+          <div class="trainer-role">Lecturer</div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Lecturers/Nick Astamidze.jpeg" alt="Nikoloz Astamidze" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Nikoloz Astamidze</div>
+          <div class="trainer-role">Lecturer</div>
+        </div>
+      </div>
+      <div class="trainer-card reveal">
+        <div class="trainer-photo-wrap">
+          <img src="Lecturers/Nino Latsabidze.png" alt="Nino Latsabidze" />
+        </div>
+        <div class="trainer-info">
+          <div class="trainer-name">Nino Latsabidze</div>
+          <div class="trainer-role">Lecturer</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT + AUTHORS -->
+  <section id="about-authors">
+    <div class="about-authors-layout">
+
+      <!-- Left: About the Program -->
+      <div class="about-col">
+        <div class="section-label reveal">About the Program</div>
+        <h2 class="section-heading reveal">Where Human<br>Meets Machine</h2>
+        <div class="about-content reveal" style="margin-top:2.5rem">
+          <p>
+            The ART of Using AI is an intensive educational program by GeoLab designed to bridge the gap between creative
+            thinking and artificial intelligence. We believe AI is not a threat to human expression — it is its most
+            powerful new medium.
+          </p>
+          <p>
+            Through lectures, live demonstrations, and collaborative workshops, participants gain practical, hands-on
+            experience with the tools shaping our world — from generative models and language systems to AI-assisted
+            design and decision-making.
+          </p>
+          <p>
+            The program is built for professionals, educators, designers, entrepreneurs, and anyone who wants to move from
+            passive observer to active creator in the age of AI.
+          </p>
+        </div>
+      </div>
+
+      <!-- Right: Authors -->
+      <div class="authors-col">
+        <div class="section-label reveal">Authors</div>
+        <h2 class="section-heading reveal">The Minds<br>Behind It</h2>
+        <div class="authors-cards-col reveal" style="margin-top:2.5rem">
+          <a href="sandro-asatiani.html" class="author-card">
+            <div class="author-card-top">
+              <div class="author-photo-wrap">
+                <img src="Sandro.jpg" alt="Prof. Sandro Asatiani" />
+              </div>
+              <div>
+                <div class="author-name">Prof. Sandro Asatiani</div>
+                <div class="author-role">Author · Educator · Technologist</div>
+              </div>
+            </div>
+            <div class="author-bio">Sandro is an artist with a focus on artificial intelligence and media arts, based in
+              Tbilisi, Georgia.</div>
+          </a>
+          <a href="karl-stoker.html" class="author-card">
+            <div class="author-card-top">
+              <div class="author-photo-wrap">
+                <img src="Karl.jpeg" alt="Prof. Dr. Karl Stocker" />
+              </div>
+              <div>
+                <div class="author-name">Prof. Dr. Karl Stocker</div>
+                <div class="author-role">Historian · Educator · Researcher</div>
+              </div>
+            </div>
+            <div class="author-bio">Karl is a consultant specializing in culture and design. He resides in Graz, Austria,
+              and also spends time in Tbilisi, Georgia.</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- VIDEO COURSE -->
+  <section id="video-course">
+    <div class="section-label reveal">Video Course</div>
+    <h2 class="section-heading reveal">Watch. Learn. Create.</h2>
+    <p class="video-course-intro reveal">
+      A curated series of video lessons covering key topics from the program — available on YouTube for free. New episodes are released regularly.
+    </p>
+
+    <div class="video-grid">
+      <div class="video-card reveal">
+        <div class="video-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-card-number">Episode 01</div>
+        <div class="video-card-title">Introduction to AI Thinking</div>
+        <div class="video-card-status"><span class="dot"></span> Coming Soon</div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-card-number">Episode 02</div>
+        <div class="video-card-title">Prompt Engineering Fundamentals</div>
+        <div class="video-card-status"><span class="dot"></span> Coming Soon</div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-card-number">Episode 03</div>
+        <div class="video-card-title">Building Your First AI Workflow</div>
+        <div class="video-card-status"><span class="dot"></span> Coming Soon</div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-card-number">Episode 04</div>
+        <div class="video-card-title">AI for Creative Professionals</div>
+        <div class="video-card-status"><span class="dot"></span> Coming Soon</div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-card-number">Episode 05</div>
+        <div class="video-card-title">Advanced Tools & Integrations</div>
+        <div class="video-card-status"><span class="dot"></span> Coming Soon</div>
+      </div>
+      <div class="video-card reveal">
+        <div class="video-card-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </div>
+        <div class="video-card-number">Episode 06</div>
+        <div class="video-card-title">Real-World AI Case Studies</div>
+        <div class="video-card-status"><span class="dot"></span> Coming Soon</div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- BOOK -->
+  <section id="book">
+    <div class="book-layout">
+      <div class="book-cover-wrap reveal">
+        <img src="Cover.png" alt="The ART of Using AI — Book Cover" />
+      </div>
+      <div class="book-text">
+        <div class="section-label reveal">The Book</div>
+        <h2 class="section-heading reveal">Get the Book</h2>
+        <p class="book-intro reveal">
+          Global editions: find the English and German versions on amazon.com
+        </p>
+        <div class="book-links reveal">
+          <a href="https://www.amazon.com/dp/B0FXTN5L9S" target="_blank" rel="noopener noreferrer" class="book-link">
+            <span class="book-link-lang">EN</span>
+            English Edition — amazon.com
+            <span style="margin-left:auto">→</span>
+          </a>
+          <a href="https://www.amazon.de/dp/B0G2SYCF7J" target="_blank" rel="noopener noreferrer" class="book-link">
+            <span class="book-link-lang">DE</span>
+            German Edition — amazon.de
+            <span style="margin-left:auto">→</span>
+          </a>
+        </div>
+      </div>
+    </div>
   </section>
 
   <footer>
