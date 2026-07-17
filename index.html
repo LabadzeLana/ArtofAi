@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The ART of Using AI — GeoLab</title>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="The ART of Using AI — GeoLab" />
+  <meta property="og:description" content="The ART of Using AI is an intensive educational program by GeoLab designed to bridge the gap between creative thinking and artificial intelligence." />
+  <meta property="og:image" content="visual.jpeg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The ART of Using AI — GeoLab" />
+  <meta name="twitter:description" content="The ART of Using AI is an intensive educational program by GeoLab designed to bridge the gap between creative thinking and artificial intelligence." />
+  <meta name="twitter:image" content="visual.jpeg" />
   <link rel="icon" type="image/png" href="favicon.png" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
 
@@ -482,7 +493,7 @@
       background: var(--white);
     }
 
-    /* ── GRAZ HYBRID WORKSHOPS ── */
+    /* ── GRAZ IN-PERSON WORKSHOPS ── */
     #graz-workshops {
       background: var(--light);
     }
@@ -782,6 +793,31 @@
       padding: 0.3rem 0.8rem;
       display: inline-block;
       margin-bottom: 0.8rem;
+    }
+
+    .workshop-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .workshop-details .wd-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      background: rgba(232, 25, 10, 0.07);
+      padding: 0.3rem 0.7rem;
+      white-space: nowrap;
+    }
+
+    .workshop-details .wd-pill svg {
+      flex-shrink: 0;
+      opacity: 0.85;
     }
 
     .workshop-title {
@@ -1253,7 +1289,12 @@
       <a href="workshop-01.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Sandro.jpg" alt="Sandro Asatiani" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Foundations</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>September 17, 2026</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 AM (CEST)</span>
+          </div>
           <div class="workshop-title">How to create Personal AI Assistant</div>
           <div class="workshop-desc">Nowadays, Artificial Intelligence is becoming an integral part of our daily lives. Move beyond simple search queries and discover AI as a versatile creative partner.</div>
           <div class="workshop-lecturer">Lecturer: Prof. Sandro Asatiani</div>
@@ -1263,7 +1304,12 @@
       <a href="workshop-02.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/David Tschmuck.jpeg" alt="David Tschmuck" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Critical Thinking</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>September 23, 2026</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 AM (CEST)</span>
+          </div>
           <div class="workshop-title">Beyond the AI Hype – The Method of "Pessimistic Correction"</div>
           <div class="workshop-desc">In a phase of unchecked technological euphoria, the method of "pessimistic correction" proves to be a strategic necessity to unmask manipulative tactics.</div>
           <div class="workshop-lecturer">Lecturer: David Angelo Tschmuck</div>
@@ -1273,7 +1319,12 @@
       <a href="workshop-03.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/Khatia Nodia.jpeg" alt="Khatia Nodia" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Creative Tools</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Date TBA</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Time TBA</span>
+          </div>
           <div class="workshop-title">Beginner Course: AI Image Generation with Midjourney</div>
           <div class="workshop-desc">This introductory course provides a practical overview of AI image generation using Midjourney. Participants learn how to structure effective prompts.</div>
           <div class="workshop-lecturer">Lecturer: Khatia Nodia</div>
@@ -1283,7 +1334,12 @@
       <a href="workshop-04.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/Bettina Janisch.jpeg" alt="Bettina Janisch" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Date TBA</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Time TBA</span>
+          </div>
           <div class="workshop-title">To Be Announced</div>
           <div class="workshop-desc">Workshop Details will be updated soon.</div>
           <div class="workshop-lecturer">Lecturer: Bettina Janisch</div>
@@ -1293,7 +1349,12 @@
       <a href="workshop-05.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/guram-keretchashvili.jpeg" alt="Guram Keretchashvili" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>September 18, 2026</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 AM (CEST)</span>
+          </div>
           <div class="workshop-title">AI in Management</div>
           <div class="workshop-desc">A hands-on online workshop that helps managers move beyond basic chatbot prompting and directly tackle common management challenges.</div>
           <div class="workshop-lecturer">Lecturer: Guram Keretchashvili</div>
@@ -1303,7 +1364,12 @@
       <a href="workshop-06.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/Nick Astamidze.jpeg" alt="Nikoloz Astamidze" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">App Development</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Date TBA</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Time TBA</span>
+          </div>
           <div class="workshop-title">AI-Assisted App Development for Small Business</div>
           <div class="workshop-desc">This program empowers small business owners to leverage artificial intelligence to quickly build and deploy their own applications. Participants will explore how AI can assist in coding business logic, generating functional components, and accelerating the prototyping process.</div>
           <div class="workshop-lecturer">Lecturer: Nikoloz Astamidze</div>
@@ -1313,7 +1379,12 @@
       <a href="workshop-07.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/Nino Latsabidze.png" alt="Nino Latsabidze" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Applied AI</span>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>September 28, 2026</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 AM (CEST)</span>
+          </div>
           <div class="workshop-title">To Be Announced</div>
           <div class="workshop-desc">Workshop Details will be updated soon.</div>
           <div class="workshop-lecturer">Lecturer: Nino Latsabidze</div>
@@ -1323,9 +1394,14 @@
       <a href="workshop-08.html" class="workshop-item reveal">
         <div class="workshop-photo"><img src="Lecturers/Sandro-Dolidze.jpg" alt="Sandro Dolidze" /></div>
         <div class="workshop-info">
-          <span class="workshop-tag">Applied AI</span>
-          <div class="workshop-title">Building Real AI Workflows</div>
-          <div class="workshop-desc">A hands-on online course that takes managers and professionals beyond basic chatbot prompting and into building real, working AI workflows.</div>
+          <div class="workshop-details">
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>September 21, 2026</span>
+            <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 AM (CEST)</span>
+          </div>
+          <div class="workshop-title">Prompt Engineering &amp; AI Workflows</div>
+          <div class="workshop-desc">This hands-on online workshop takes managers and professionals beyond basic chatbot prompting and into building real, working AI workflows.</div>
           <div class="workshop-lecturer">Lecturer: Sandro Dolidze</div>
         </div>
         <div class="workshop-arrow">→</div>
@@ -1345,17 +1421,17 @@
 
   </section>
 
-  <!-- GRAZ HYBRID WORKSHOPS -->
+  <!-- GRAZ IN-PERSON WORKSHOPS -->
   <section id="graz-workshops">
-    <div class="section-label reveal">Graz Hybrid Workshops</div>
+    <div class="section-label reveal">Graz In-Person Workshops</div>
     <h2 class="section-heading reveal">Learn in Graz. Connect Globally.</h2>
     <p class="graz-intro reveal">
-      Intensive hybrid workshops hosted in Graz, Austria — combining in-person immersion with remote accessibility. Master cutting-edge AI skills through focused, hands-on sessions.
+      Intensive in-person workshops hosted in Graz, Austria. Master cutting-edge AI skills through focused, hands-on sessions.
     </p>
     <div class="graz-intro reveal">
       <span class="location-badge">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-        Graz, Austria · Hybrid Format
+        Graz, Austria · In-Person Format
       </span>
     </div>
 
@@ -1364,7 +1440,7 @@
       <!-- Workshop 1 -->
       <a href="graz-workshop-01.html" class="graz-workshop-card reveal" style="text-decoration: none; color: inherit; display: flex;">
         <div class="graz-card-number">01</div>
-        <span class="graz-card-tag">Hybrid Workshop</span>
+        <span class="graz-card-tag">In-Person Workshop</span>
         <div class="graz-card-title">How to Create a Personal AI Assistant</div>
         <div class="graz-card-desc">
           Design and build your own personal AI assistant from scratch. Learn prompt engineering, workflow automation, and how to integrate AI into your daily professional routines for maximum productivity and creativity.
@@ -1380,7 +1456,7 @@
           </div>
           <div class="graz-meta-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Hybrid
+            In-Person
           </div>
         </div>
       </a>
@@ -1388,7 +1464,7 @@
       <!-- Workshop 2 -->
       <a href="graz-workshop-02.html" class="graz-workshop-card reveal" style="text-decoration: none; color: inherit; display: flex;">
         <div class="graz-card-number">02</div>
-        <span class="graz-card-tag">Hybrid Workshop</span>
+        <span class="graz-card-tag">In-Person Workshop</span>
         <div class="graz-card-title">How to Create Applications or Mini Programs</div>
         <div class="graz-card-desc">
           Discover how to use AI-powered tools to build functional applications and mini programs — even without a traditional coding background. From concept to prototype, learn the full creative development cycle.
@@ -1404,7 +1480,7 @@
           </div>
           <div class="graz-meta-item">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
-            Hybrid
+            In-Person
           </div>
         </div>
       </a>
@@ -1658,6 +1734,10 @@
     <div class="footer-contact">
       <div class="footer-contact-label">Contact Us</div>
       <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
+      <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="privacy-policy.html" target="_blank" class="footer-email">Privacy Policy</a>
+        <a href="terms-and-conditions.html" target="_blank" class="footer-email">Terms and Conditions</a>
+      </div>
     </div>
 
     <div class="footer-social">
@@ -1691,6 +1771,18 @@
       <span>© 2025 GeoLab. All rights reserved.</span>
     </div>
   </footer>
+
+  <div class="project-disclaimer" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 2rem 5%; background-color: #f5f3f0; color: #0c0c0c; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.08); gap: 1.5rem;">
+    <div class="disclaimer-logo left" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;">
+      <img src="Disclaimer/EN-Funded-by-the-EU-POS.png" alt="Funded by the EU" style="max-height: 45px; width: auto; object-fit: contain;" />
+    </div>
+    <div class="disclaimer-text" style="flex: 1 1 300px; line-height: 1.6; margin: 0 auto;">
+      This project is implemented with the support of the European Union (EU) and the United Nations Development Programme (UNDP).
+    </div>
+    <div class="disclaimer-logo right" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;">
+      <img src="Disclaimer/UNDP-Logo.png" alt="UNDP Logo" style="max-height: 55px; width: auto; object-fit: contain;" />
+    </div>
+  </div>
 
 
   <script>
