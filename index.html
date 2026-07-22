@@ -989,6 +989,54 @@
       .book-cover-wrap { max-width: 240px; }
     }
 
+    /* ── CORPORATE PARTNERS ── */
+    #partners {
+      background: var(--white);
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .partners-grid {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 2.5rem;
+      margin-top: 3rem;
+      flex-wrap: wrap;
+    }
+
+    .partner-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.8rem 3rem;
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 6px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+      text-decoration: none;
+      min-width: 220px;
+      height: 110px;
+    }
+
+    .partner-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+      border-color: var(--red);
+    }
+
+    .partner-card img {
+      max-height: 55px;
+      max-width: 100%;
+      object-fit: contain;
+      filter: grayscale(15%);
+      transition: filter 0.3s ease, transform 0.3s ease;
+    }
+
+    .partner-card:hover img {
+      filter: grayscale(0%);
+      transform: scale(1.04);
+    }
+
     /* ── FOOTER ── */
     footer {
       background: var(--black);
@@ -1260,6 +1308,7 @@
       <li><a href="#about-authors">About</a></li>
       <li><a href="#video-course">Video Course</a></li>
       <li><a href="#book">Book</a></li>
+      <li><a href="#partners">Partners</a></li>
     </ul>
   </nav>
 
@@ -1727,6 +1776,20 @@
           </a>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE PARTNERS -->
+  <section id="partners">
+    <div class="section-label reveal">Partners</div>
+    <h2 class="section-heading reveal">Corporate Partners</h2>
+    <div class="partners-grid reveal">
+      <a href="https://gau.edu.ge/en" target="_blank" rel="noopener noreferrer" class="partner-card" title="GAU — Georgian American University">
+        <img src="partners/GAU.png" alt="GAU — Georgian American University Logo" />
+      </a>
+      <a href="https://leavingstone.com/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Leavingstone">
+        <img src="partners/Lvngstone.png" alt="Leavingstone Logo" />
+      </a>
     </div>
   </section>
 
