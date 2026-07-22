@@ -13,13 +13,13 @@ details_map = {
     },
     "workshop-03.html": {
         "tag": "Creative Tools",
-        "date": "Date TBA",
-        "time": "Time TBA"
+        "date": "September 22, 2026",
+        "time": "10:30 AM (CEST)"
     },
     "workshop-04.html": {
         "tag": "Applied AI",
-        "date": "Date TBA",
-        "time": "Time TBA"
+        "date": "September 25, 2026",
+        "time": "10:30 AM (CEST)"
     },
     "workshop-05.html": {
         "tag": "Applied AI",
