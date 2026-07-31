@@ -1,20 +1,22 @@
-<!DOCTYPE html><html lang="en"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Workshop 06: AI-Assisted App Development for Small Business — The ART of Using AI</title>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Levan Paitchadze — The ART of Using AI</title>
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Workshop 06: AI-Assisted App Development for Small Business — The ART of Using AI" />
-  <meta property="og:description" content="This program empowers small business owners to leverage artificial intelligence to quickly build and deploy their own applications." />
+  <meta property="og:title" content="Levan Paitchadze — The ART of Using AI" />
+  <meta property="og:description" content="Levan Paitchadze is the Founder and CEO of Plexygon, where he has been building digital infrastructure for ambitious teams since 2013." />
   <meta property="og:image" content="visual.jpeg" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Workshop 06: AI-Assisted App Development for Small Business — The ART of Using AI" />
-  <meta name="twitter:description" content="This program empowers small business owners to leverage artificial intelligence to quickly build and deploy their own applications." />
+  <meta name="twitter:title" content="Levan Paitchadze — The ART of Using AI" />
+  <meta name="twitter:description" content="Levan Paitchadze is the Founder and CEO of Plexygon, where he has been building digital infrastructure for ambitious teams since 2013." />
   <meta name="twitter:image" content="visual.jpeg" />
-  <link rel="icon" type="image/png" href="favicon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;family=Playfair+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
 
   <style>
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -71,13 +73,44 @@
     }
     .nav-links a:hover::after { width: 100%; }
     
-    .workshop-section {
+    .profile-section {
       flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      align-items: center;
       padding: 10rem 4rem 6rem;
-      max-width: 1000px;
+      gap: 5rem;
+      max-width: 1400px;
       margin: 0 auto;
     }
-    .workshop-eyebrow {
+    .profile-image-wrap {
+      position: relative;
+      aspect-ratio: 3 / 4;
+      overflow: hidden;
+      max-width: 500px;
+      margin-left: auto;
+    }
+    .profile-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+      filter: grayscale(15%);
+    }
+    .profile-image-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border: 1px solid rgba(232,25,10,0.3);
+      pointer-events: none;
+      z-index: 2;
+    }
+    
+    .profile-text {
+      max-width: 600px;
+    }
+    .profile-eyebrow {
       font-size: 0.72rem;
       letter-spacing: 0.22em;
       text-transform: uppercase;
@@ -85,87 +118,48 @@
       margin-bottom: 2rem;
       display: flex; align-items: center; gap: 1rem;
     }
-    .workshop-eyebrow::before {
+    .profile-eyebrow::before {
       content: '';
       display: inline-block; width: 2rem; height: 1px;
       background: var(--red);
     }
-    .workshop-details {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.6rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .workshop-details .wd-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--black);
-      padding: 0.3rem 0.7rem;
-      white-space: nowrap;
-    }
-
-    .workshop-details .wd-pill svg {
-      flex-shrink: 0;
-      opacity: 0.85;
-    }
-    .workshop-title {
+    .profile-title {
       font-family: 'Bebas Neue', sans-serif;
-      font-size: clamp(3rem, 6vw, 5rem);
+      font-size: clamp(3.5rem, 6vw, 6rem);
       line-height: 0.95;
       letter-spacing: 0.02em;
-      margin-bottom: 0;
+      margin-bottom: 0.5rem;
     }
-    .workshop-lecturer {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: var(--black);
+    .profile-role {
+      font-size: 0.85rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--red);
       margin-bottom: 2.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
+      font-weight: 500;
     }
-    .workshop-lecturer span { color: var(--red); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; }
     
-    .workshop-description {
-      font-size: 1.15rem;
+    .profile-bio {
+      font-size: 1.1rem;
       line-height: 1.8;
       color: #444;
       margin-bottom: 3.5rem;
       white-space: pre-line;
     }
 
-    
-    .cta-group {
-      display: flex;
-      gap: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .cta-btn {
+    .profile-cta {
       display: inline-flex; align-items: center; gap: 1rem;
+      background: var(--black);
+      color: var(--white);
       padding: 1rem 2.2rem;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: all 0.3s;
+      transition: background 0.3s, gap 0.3s;
     }
-    .cta-primary {
-      background: var(--red);
-      color: var(--white);
-    }
-    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
-    .cta-secondary {
-      background: var(--black);
-      color: var(--white);
-    }
-    .cta-secondary:hover { background: var(--red); gap: 1.6rem; }
-    .cta-arrow { font-size: 1rem; }
+    .profile-cta:hover { background: var(--red); gap: 1.6rem; }
+    .profile-cta-arrow { font-size: 1rem; }
     
     /* ── FOOTER ── */
     footer {
@@ -280,8 +274,16 @@
     /* ── RESPONSIVE ── */
     @media (max-width: 900px) {
       nav { padding: 1.2rem 2rem; }
-      .workshop-section { padding: 8rem 2rem 4rem; }
-      footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
+      .profile-section { 
+        grid-template-columns: 1fr; 
+        padding: 8rem 2rem 4rem; 
+        text-align: center; 
+        gap: 3rem;
+      }
+      .profile-image-wrap { margin: 0 auto; width: 100%; max-width: 400px; }
+      .profile-eyebrow { justify-content: center; }
+      .profile-bio { margin-left: auto; margin-right: auto; }
+      footer { flex-direction: column; align-items: flex-start; padding: 3rem 2rem; }
     }
   </style>
 </head>
@@ -293,42 +295,25 @@
     </ul>
   </nav>
 
-  <section class="workshop-section">
-    <div class="workshop-eyebrow">Workshop 06</div>
-        <h1 class="workshop-title">AI-Assisted App Development for Small Business</h1>
-    <div class="workshop-details">
-      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
-      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
-      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>Date TBA</span>
-      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>Time TBA</span>
+  <section class="profile-section">
+    <div class="profile-image-wrap">
+      <img src="Lecturers/Levan Paitchadze.png" alt="Levan Paitchadze" onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 400 533\'%3E%3Crect width=\'100%25\' height=\'100%25\' fill=\'%23ece9e3\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' dominant-baseline=\'middle\' text-anchor=\'middle\' font-family=\'Georgia,serif\' font-weight=\'bold\' font-size=\'72\' fill=\'%23b0aba3\'%3ELP%3C/text%3E%3C/svg%3E'" />
     </div>
-    <div class="workshop-lecturer">
-      <span>Lecturer :</span> <a href="levan-paitchadze.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--red);">Levan Paitchadze</a>
-    </div>
-    <div class="workshop-description">This program empowers small business owners to leverage artificial intelligence to quickly build and deploy their own applications. Participants will explore how AI can assist in coding business logic, generating functional components, and accelerating the prototyping process. Through practical examples and guided exercises, they will gain the skills to integrate AI as a creative and productivity partner to bring their digital business ideas to life efficiently.
+    <div class="profile-text">
+      <div class="profile-eyebrow">Lecturer Profile</div>
+      <h1 class="profile-title">Levan Paitchadze</h1>
+      <div class="profile-role">Founder & CEO, Plexygon</div>
+      <div class="profile-bio">Levan Paitchadze is the Founder and CEO of Plexygon, where he has been building digital infrastructure for ambitious teams since 2013. Under his leadership, the company has delivered over 600 projects across more than 15 countries, supporting organizations in developing scalable and effective digital solutions.
 
-Learning Objectives:
-Understand the role of AI in modern rapid application development workflows.
-Learn how to use AI to generate application code and automate repetitive development tasks.
-Discover AI tools for creating user interfaces and functional application assets.
-Build a basic application prototype by combining AI-generated code and components.
-Gain confidence in using AI as a collaborative tool to streamline the creation of custom business solutions.
-
-Topics Covered: Integrating AI as a creative and productivity partner to bring digital business ideas to life.
-
-Tools: AI Studio, Antigravity, Google Stitch.</div>
-    <div class="cta-group">
-      <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
-        Register for the Workshop <span class="cta-arrow">→</span>
-      </a>
+Alongside his work at Plexygon, Levan is also a cofounder of Healo.live, an online psychotherapy platform focused on expanding access to mental health support through technology. His work reflects a strong commitment to enabling growth and innovation through reliable digital systems.</div>
     </div>
   </section>
   
-    <footer>
+  <footer>
     <div class="footer-brand">
       <div class="footer-logo" style="max-width: 150px; display: block; margin-bottom: 0.5rem;">
         <a href="https://www.facebook.com/GeoLabEdu" target="_blank" rel="noopener noreferrer">
-          <img src="logo.png" alt="GeoLab Logo" style="width: 100%; height: auto; display: block;">
+          <img src="logo.png" alt="GeoLab Logo" style="width: 100%; height: auto; display: block;" />
         </a>
       </div>
       <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
@@ -346,23 +331,25 @@ Tools: AI Studio, Antigravity, Google Stitch.</div>
     <div class="footer-social">
       <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
         </svg>
         Facebook
       </a>
-      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer" class="social-link">
+      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer"
+        class="social-link">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-          <rect x="2" y="9" width="4" height="12"></rect>
-          <circle cx="4" cy="4" r="2"></circle>
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+          <rect x="2" y="9" width="4" height="12" />
+          <circle cx="4" cy="4" r="2" />
         </svg>
         LinkedIn
       </a>
       <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+          stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
         </svg>
         Instagram
       </a>
@@ -371,7 +358,7 @@ Tools: AI Studio, Antigravity, Google Stitch.</div>
     <div class="footer-bottom">
       <span>© 2025 GeoLab. All rights reserved.</span>
     </div>
-    </footer>
+  </footer>
 
   <div class="project-disclaimer" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 2rem 5%; background-color: #f5f3f0; color: #0c0c0c; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.08); gap: 1.5rem;">
     <div class="disclaimer-logo left" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;">
@@ -385,6 +372,5 @@ Tools: AI Studio, Antigravity, Google Stitch.</div>
     </div>
   </div>
 
-
-
-</body></html>
+</body>
+</html>
