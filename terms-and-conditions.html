@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Terms and Conditions — The Art of Using AI</title>
   <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="stylesheet" href="css/cookie-consent.css" />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after {
@@ -87,6 +88,15 @@
       p { font-size: 0.9rem; }
     }
   </style>
+<!-- Google Analytics 4 - REPLACE G-XXXXXXXXXX with real Measurement ID -->
+<script>
+  window.GA_MEASUREMENT_ID = "G-XXXXXXXXXX";
+</script>
+
+<!-- Meta Pixel - REPLACE XXXXXXXXXXXXXXX with real Pixel ID -->
+<script>
+  window.META_PIXEL_ID = "XXXXXXXXXXXXXXX";
+</script>
 </head>
 <body>
 
@@ -143,5 +153,13 @@
     Email: <a href="mailto:theartofAI@geolab.edu.ge">theartofAI@geolab.edu.ge</a></p>
   </div>
 
+<div id="cookie-consent" class="cookie-consent" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-consent__text">We use cookies to improve your experience. By clicking Accept, you agree to our use of cookies.</p>
+  <div class="cookie-consent__actions">
+    <button type="button" id="accept-cookies" class="cookie-consent__btn cookie-consent__btn--accept">Accept</button>
+    <button type="button" id="decline-cookies" class="cookie-consent__btn cookie-consent__btn--decline">Decline</button>
+  </div>
+</div>
+<script src="js/tracking.js"></script>
 </body>
 </html>
