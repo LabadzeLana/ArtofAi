@@ -16,7 +16,8 @@
   <meta name="twitter:description" content="Sandro Asatiani is a distinguished artist, educator, and technologist, celebrated for his profound integration of creative arts and computer technology." />
   <meta name="twitter:image" content="visual.jpeg" />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="css/cookie-consent.css" />
+  <link rel="stylesheet" href="/css/cookie-consent.css" />
+  <link rel="stylesheet" href="/css/mobile-menu.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
 
   <style>
@@ -305,7 +306,35 @@
     <ul class="nav-links">
       <li><a href="./">← Back to Main Page</a></li>
     </ul>
+    <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-overlay">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-drawer" id="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="mobile-menu-logo">Geo<span>Lab</span></a>
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#workshops">Online Workshops</a></li>
+        <li><a href="index.html#graz-workshops">Graz Workshops</a></li>
+        <li><a href="index.html#trainers">Trainers</a></li>
+        <li><a href="index.html#about-authors">About</a></li>
+        <li><a href="index.html#video-course">Video Course</a></li>
+        <li><a href="index.html#book">Book</a></li>
+        <li><a href="index.html#partners">Partners</a></li>
+        <li class="mobile-nav-back"><a href="index.html">← Back to Main Page</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        © 2025 GeoLab. All rights reserved.
+      </div>
+    </div>
+  </div>
 
   <section class="profile-section">
     <div class="profile-image-wrap">
@@ -394,6 +423,7 @@ As an Associate Professor at Ilia State University and an Invited Professor at t
     <button type="button" id="decline-cookies" class="cookie-consent__btn cookie-consent__btn--decline">Decline</button>
   </div>
 </div>
-<script src="js/tracking.js"></script>
+<script src="/js/tracking.js"></script>
+<script src="/js/mobile-menu.js" defer></script>
 </body>
 </html>

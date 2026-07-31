@@ -16,7 +16,8 @@
   <meta name="twitter:description" content="The ART of Using AI is an intensive educational program by GeoLab designed to bridge the gap between creative thinking and artificial intelligence." />
   <meta name="twitter:image" content="visual.jpeg" />
   <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="stylesheet" href="css/cookie-consent.css" />
+  <link rel="stylesheet" href="/css/cookie-consent.css" />
+  <link rel="stylesheet" href="/css/mobile-menu.css" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Playfair+Display:ital@0;1&display=swap" rel="stylesheet"/>
 
   <style>
@@ -1320,7 +1321,34 @@
       <li><a href="#book">Book</a></li>
       <li><a href="#partners">Partners</a></li>
     </ul>
+    <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-overlay">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
   </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-drawer" id="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="mobile-menu-logo">Geo<span>Lab</span></a>
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="#workshops">Online Workshops</a></li>
+        <li><a href="#graz-workshops">Graz Workshops</a></li>
+        <li><a href="#trainers">Trainers</a></li>
+        <li><a href="#about-authors">About</a></li>
+        <li><a href="#video-course">Video Course</a></li>
+        <li><a href="#book">Book</a></li>
+        <li><a href="#partners">Partners</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        © 2025 GeoLab. All rights reserved.
+      </div>
+    </div>
+  </div>
 
   <!-- HERO -->
   <section class="hero" id="home">
@@ -1911,7 +1939,8 @@
     <button type="button" id="decline-cookies" class="cookie-consent__btn cookie-consent__btn--decline">Decline</button>
   </div>
 </div>
-<script src="js/tracking.js"></script>
+<script src="/js/tracking.js"></script>
+<script src="/js/mobile-menu.js" defer></script>
 </body>
 
 </html>
