@@ -7,19 +7,18 @@
 
   // Function that actually injects the analytics scripts
   function loadAnalytics(){
-    // Load GA4 if ID is set
-    if(window.GA_MEASUREMENT_ID){
-      var gaScript = document.createElement('script');
-      gaScript.async = true;
-      gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_MEASUREMENT_ID;
-      document.head.appendChild(gaScript);
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', window.GA_MEASUREMENT_ID);
+    // Load Google Tag Manager if ID is set
+    var gtmId = window.GTM_ID || 'GTM-PKNCCWCJ';
+    if(gtmId){
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer',gtmId);
     }
     // Load Meta Pixel if ID is set
-    if(window.META_PIXEL_ID){
+    var metaPixelId = window.META_PIXEL_ID || '1348092986253861';
+    if(metaPixelId){
       !function(f,b,e,v,n,t,s){
         if(f.fbq)return;n=f.fbq=function(){n.callMethod?
         n.callMethod.apply(n,arguments):n.queue.push(arguments)};
@@ -28,7 +27,7 @@
         t.src=v;s=b.getElementsByTagName(e)[0];
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', window.META_PIXEL_ID);
+      fbq('init', metaPixelId);
       fbq('track', 'PageView');
     }
   }
