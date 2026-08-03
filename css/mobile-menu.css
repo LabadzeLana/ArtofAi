@@ -208,3 +208,45 @@
 body.mobile-menu-open {
   overflow: hidden !important;
 }
+
+/* ── EU / UNDP DISCLAIMER BAR — MOBILE FIX ── */
+/*
+  Desktop: [EU logo] [text paragraph] [UNDP logo] — all in one row
+  Mobile:  flex-wrap causes the UNDP logo to fall onto its own line below text.
+  Fix: on mobile, re-order so both logos share the top row and text wraps below.
+*/
+@media (max-width: 768px) {
+  .project-disclaimer {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center !important;
+    align-items: center;
+    gap: 1rem !important;
+  }
+
+  /* Both logos: sit side-by-side on the first row */
+  .project-disclaimer .disclaimer-logo {
+    order: 1;
+    flex: 0 0 auto;
+  }
+
+  /* EU logo (left) — push it to the start of the logos pair */
+  .project-disclaimer .disclaimer-logo.left {
+    margin-right: auto;
+  }
+
+  /* UNDP logo (right) — push it to the end of the logos pair */
+  .project-disclaimer .disclaimer-logo.right {
+    margin-left: auto;
+  }
+
+  /* Text paragraph: becomes its own full-width second row */
+  .project-disclaimer .disclaimer-text {
+    order: 2;
+    flex: 0 0 100% !important;
+    margin: 0 !important;
+    text-align: center;
+    font-size: 0.82rem;
+    line-height: 1.6;
+  }
+}
