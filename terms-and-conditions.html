@@ -21,7 +21,11 @@
       --red: #E8190A;
     }
 
-    html { scroll-behavior: smooth; }
+    html {
+      scroll-behavior: smooth;
+      max-width: 100%;
+      overflow-x: hidden;
+    }
 
     body {
       background: var(--white);
@@ -33,6 +37,8 @@
       justify-content: center;
       padding: 4rem 2rem;
       min-height: 100vh;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     .container {

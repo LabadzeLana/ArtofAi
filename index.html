@@ -39,6 +39,8 @@
 
     html {
       scroll-behavior: smooth;
+      max-width: 100%;
+      overflow-x: hidden;
     }
 
     body {
@@ -46,6 +48,7 @@
       color: var(--black);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
+      max-width: 100%;
       overflow-x: hidden;
     }
 
@@ -1088,6 +1091,8 @@
       font-size: 0.88rem;
       letter-spacing: 0.03em;
       transition: color 0.2s;
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     .footer-email:hover {
@@ -1280,9 +1285,9 @@
       }
 
       footer {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 3rem 2rem;
+        grid-template-columns: 1fr;
+        gap: 2.5rem;
+        padding: 3rem 1.5rem;
       }
     }
 

@@ -27,11 +27,16 @@
       --grey: #b0aba3;
       --light: #ece9e3;
     }
+    html {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
     body {
       background: var(--white);
       color: var(--black);
       font-family: 'DM Sans', sans-serif;
       font-weight: 300;
+      max-width: 100%;
       overflow-x: hidden;
       display: flex;
       flex-direction: column;
@@ -211,6 +216,8 @@
       font-size: 0.88rem;
       letter-spacing: 0.03em;
       transition: color 0.2s;
+      word-break: break-word;
+      overflow-wrap: anywhere;
     }
 
     .footer-email:hover {
@@ -247,6 +254,9 @@
       font-size: 0.7rem;
       color: rgba(255, 255, 255, 0.25);
       letter-spacing: 0.06em;
+      position: relative;
+      overflow: hidden;
+      width: 100%;
     }
 
     /* ── ANIMATIONS ── */
@@ -285,7 +295,7 @@
       .profile-image-wrap { margin: 0 auto; width: 100%; max-width: 400px; }
       .profile-eyebrow { justify-content: center; }
       .profile-bio { margin-left: auto; margin-right: auto; }
-      footer { flex-direction: column; align-items: flex-start; padding: 3rem 2rem; }
+      footer { grid-template-columns: 1fr; gap: 2.5rem; padding: 3rem 1.5rem; }
     }
   </style>
 <!-- Google Tag Manager -->
