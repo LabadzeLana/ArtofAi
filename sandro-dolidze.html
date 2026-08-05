@@ -153,19 +153,26 @@
     }
 
 
-    .profile-cta {
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
       display: inline-flex; align-items: center; gap: 1rem;
-      background: var(--black);
-      color: var(--white);
       padding: 1rem 2.2rem;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.3s, gap 0.3s;
+      transition: all 0.3s;
     }
-    .profile-cta:hover { background: var(--red); gap: 1.6rem; }
-    .profile-cta-arrow { font-size: 1rem; }
+    .cta-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
+    .cta-arrow { font-size: 1rem; }
     
     /* Footer styles to match the main page */
     /* ── FOOTER ── */
@@ -354,6 +361,16 @@
       <div class="profile-bio">Sandro Dolidze is a Tbilisi-based product owner and strategist with over a decade of experience building digital products across banking, government, and education. He most recently served as Digital AI Product Owner at Bank of Georgia, and spent over four years as Head of Mobile Development Team at Leavingstone.
 
 A systems thinker with a habit of treating any process — banking infrastructure, government platforms, AI models — as something to be taken apart and rebuilt simpler, Sandro has shipped products across very different worlds: rebuilding the Parliament of Georgia's website and the Eastern Partnership platform, tripling the user base of SABA's audiobook and e-reading app, and driving digital strategy inside Leavingstone. Earlier, as co-founder and CEO of Nebula, he built an education company that reached over 20,000 students, earned Forbes Georgia's "30 Under 30" recognition, and won support from the U.S. Department of State and the Presidential Administration of Georgia. That same instinct — find what's actually broken, then rebuild it simpler — is what he now brings to teaching AI.</div>
+      <div class="profile-registration" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+        <h2 class="profile-workshop-title" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.3rem); line-height: 1.05; letter-spacing: 0.03em; margin-bottom: 1.2rem;">
+          Prompt Engineering &amp; AI Workflows
+        </h2>
+        <div class="cta-group">
+          <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
+            Register for the Workshop <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
   

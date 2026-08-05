@@ -155,19 +155,26 @@
     }
 
 
-    .profile-cta {
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
       display: inline-flex; align-items: center; gap: 1rem;
-      background: var(--black);
-      color: var(--white);
       padding: 1rem 2.2rem;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.3s, gap 0.3s;
+      transition: all 0.3s;
     }
-    .profile-cta:hover { background: var(--red); gap: 1.6rem; }
-    .profile-cta-arrow { font-size: 1rem; }
+    .cta-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
+    .cta-arrow { font-size: 1rem; }
     
     /* Footer styles to match the main page */
     /* ── FOOTER ── */
@@ -364,6 +371,16 @@
 For 30 years, he has directed and curated exhibitions and contributed numerous projects to other exhibits. He was Head of the Design and Communication Institute at the University of Applied Sciences in Graz for many years. 
 
 He was a professor at the University of Kassel from 1996 to 1997, Visiting Professor at the Berlin University of the Arts from 2009 to 2015, and since 1988 he has been a professor at the University of Graz. Since October 2024, he has served as the Co-Head of the English-language PhD program in Media Arts and Digital Media at Tbilisi State Academy of Arts.</div>
+      <div class="profile-registration" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+        <h2 class="profile-workshop-title" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.3rem); line-height: 1.05; letter-spacing: 0.03em; margin-bottom: 1.2rem;">
+          Register for the Program
+        </h2>
+        <div class="cta-group">
+          <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
+            Register for the Workshop <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
   

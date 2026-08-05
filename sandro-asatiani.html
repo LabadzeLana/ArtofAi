@@ -150,19 +150,26 @@
     }
 
 
-    .profile-cta {
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
       display: inline-flex; align-items: center; gap: 1rem;
-      background: var(--black);
-      color: var(--white);
       padding: 1rem 2.2rem;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.3s, gap 0.3s;
+      transition: all 0.3s;
     }
-    .profile-cta:hover { background: var(--red); gap: 1.6rem; }
-    .profile-cta-arrow { font-size: 1rem; }
+    .cta-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
+    .cta-arrow { font-size: 1rem; }
     
     /* Footer styles to match the main page */
     /* ── FOOTER ── */
@@ -354,6 +361,16 @@
 His prolific career includes extensive international exhibitions across major cities like Florence, Paris, and Vienna. Asatiani's unique professional trajectory blends art and technology, evidenced by his roles as a design group head and ICT engineer.
 
 As an Associate Professor at Ilia State University and an Invited Professor at the Tbilisi State Academy of Arts, he's been pivotal in shaping Georgian arts education. He developed and accredited Master's programs in Media Arts and Media Engineering, continually exploring the dynamic relationship between art, technology, and education.</div>
+      <div class="profile-registration" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+        <h2 class="profile-workshop-title" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.3rem); line-height: 1.05; letter-spacing: 0.03em; margin-bottom: 1.2rem;">
+          How to create Personal AI Assistant
+        </h2>
+        <div class="cta-group">
+          <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
+            Register for the Workshop <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
   

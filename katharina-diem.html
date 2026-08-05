@@ -155,19 +155,26 @@
     }
 
 
-    .profile-cta {
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
       display: inline-flex; align-items: center; gap: 1rem;
-      background: var(--black);
-      color: var(--white);
       padding: 1rem 2.2rem;
       font-size: 0.78rem;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.3s, gap 0.3s;
+      transition: all 0.3s;
     }
-    .profile-cta:hover { background: var(--red); gap: 1.6rem; }
-    .profile-cta-arrow { font-size: 1rem; }
+    .cta-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
+    .cta-arrow { font-size: 1rem; }
     
     /* Footer styles to match the main page */
     /* ── FOOTER ── */
@@ -364,6 +371,16 @@
 A traveler of worlds, both outer and inner, her creative process is guided by curiosity, openness, and a deep sensitivity to what truly nourishes us. Katharina’s approach embraces the coexistence of philosophy and technology, body and mind, research and intuition, weaving them into meaningful design that resonates beyond the surface. Never an either-or, but rather recognizing the interplay within everything. Exploring, creating, and transforming both self and surroundings is an ongoing journey in her practice.
 
 Her projects spark moments of reflection, connection, and wonder, drawing inspiration from diverse cultural influences alongside yogic and energetic traditions. Passionate about socio-relevant themes, she creates work that resonates deeply on both a soulful personal level and within broader societal contexts.</div>
+      <div class="profile-registration" style="margin-top: 2.5rem; padding-top: 2rem; border-top: 1px solid rgba(0,0,0,0.08);">
+        <h2 class="profile-workshop-title" style="font-family: 'Bebas Neue', sans-serif; font-size: clamp(1.8rem, 3.5vw, 2.3rem); line-height: 1.05; letter-spacing: 0.03em; margin-bottom: 1.2rem;">
+          The AI Cognitive Mirror: Simulating Consciousness, Ethics &amp; Re-claiming Human Agency
+        </h2>
+        <div class="cta-group">
+          <a href="https://forms.gle/LBfuTBLVwV99jnQ76" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
+            Register for the Workshop <span class="cta-arrow">→</span>
+          </a>
+        </div>
+      </div>
     </div>
   </section>
   
