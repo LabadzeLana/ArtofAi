@@ -1,0 +1,441 @@
+<!DOCTYPE html><html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop 09: Turning AI into Your Marketing Assistant — The ART of Using AI</title>
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Workshop 09: Turning AI into Your Marketing Assistant — The ART of Using AI" />
+  <meta property="og:description" content="Most time of the workshop will be spent on live projects, pressure-testing prompts, and building assets you can actually use." />
+  <meta property="og:image" content="visual.jpeg" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Workshop 09: Turning AI into Your Marketing Assistant — The ART of Using AI" />
+  <meta name="twitter:description" content="Most time of the workshop will be spent on live projects, pressure-testing prompts, and building assets you can actually use." />
+  <meta name="twitter:image" content="visual.jpeg" />
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="stylesheet" href="/css/cookie-consent.css" />
+  <link rel="stylesheet" href="/css/mobile-menu.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&amp;family=Playfair+Display:ital@0;1&amp;display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --red: #E8190A;
+      --black: #0c0c0c;
+      --white: #f5f3ef;
+      --grey: #b0aba3;
+      --light: #ece9e3;
+    }
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 1.4rem 4rem;
+      background: rgba(245,243,239,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+    }
+    .nav-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.3rem;
+      letter-spacing: 0.15em;
+      color: var(--black);
+      text-decoration: none;
+    }
+    .nav-logo span { color: var(--red); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      text-decoration: none;
+      position: relative;
+      padding-bottom: 2px;
+      font-weight: 500;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute; bottom: 0; left: 0;
+      width: 0; height: 1px;
+      background: var(--red);
+      transition: width 0.3s ease;
+    }
+    .nav-links a:hover::after { width: 100%; }
+    
+    .workshop-section {
+      flex: 1;
+      padding: 10rem 4rem 6rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .workshop-eyebrow {
+      font-size: 0.72rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--grey);
+      margin-bottom: 2rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .workshop-eyebrow::before {
+      content: '';
+      display: inline-block; width: 2rem; height: 1px;
+      background: var(--red);
+    }
+    .workshop-details {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.6rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .workshop-details .wd-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--black);
+      padding: 0.3rem 0.7rem;
+      white-space: nowrap;
+    }
+
+    .workshop-details .wd-pill svg {
+      flex-shrink: 0;
+      opacity: 0.85;
+    }
+    .workshop-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 6vw, 5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 0;
+    }
+    .workshop-lecturer {
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 2.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .workshop-lecturer span { color: var(--red); text-transform: uppercase; font-size: 0.75rem; letter-spacing: 0.1em; }
+    
+    .workshop-description {
+      font-size: 1.15rem;
+      line-height: 1.8;
+      color: #444;
+      margin-bottom: 3.5rem;
+      white-space: pre-line;
+    }
+
+    
+    .cta-group {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+    }
+    .cta-btn {
+      display: inline-flex; align-items: center; gap: 1rem;
+      padding: 1rem 2.2rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+    .cta-primary {
+      background: var(--red);
+      color: var(--white);
+    }
+    .cta-primary:hover { background: var(--black); gap: 1.6rem; }
+    .cta-secondary {
+      background: var(--black);
+      color: var(--white);
+    }
+    .cta-secondary:hover { background: var(--red); gap: 1.6rem; }
+    .cta-arrow { font-size: 1rem; }
+    
+    /* ── FOOTER ── */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 2rem 3rem;
+      align-items: start;
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.6rem;
+      letter-spacing: 0.1em;
+    }
+
+    .footer-logo span {
+      color: var(--red);
+    }
+
+    .footer-tagline {
+      font-size: 0.78rem;
+      color: rgba(255, 255, 255, 0.4);
+      letter-spacing: 0.08em;
+      margin-top: 0.5rem;
+      line-height: 1.5;
+    }
+
+    .footer-contact {}
+
+    .footer-contact-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 0.7rem;
+    }
+
+    .footer-email {
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 0.88rem;
+      letter-spacing: 0.03em;
+      transition: color 0.2s;
+    }
+
+    .footer-email:hover {
+      color: var(--red);
+    }
+
+    .footer-social {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      color: rgba(255, 255, 255, 0.55);
+      text-decoration: none;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.2s, gap 0.2s;
+    }
+
+    .social-link:hover {
+      color: var(--red);
+      gap: 0.9rem;
+    }
+
+    .footer-bottom {
+      grid-column: 1 / -1;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      font-size: 0.7rem;
+      color: rgba(255, 255, 255, 0.25);
+      letter-spacing: 0.06em;
+    }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .reveal {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .js-ready .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .js-ready .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.2rem 2rem; }
+      .workshop-section { padding: 8rem 2rem 4rem; }
+      footer { grid-template-columns: 1fr; padding: 3rem 2rem; }
+    }
+  </style>
+<!-- Google Tag Manager -->
+<script>
+  window.GTM_ID = "GTM-PKNCCWCJ";
+</script>
+
+<!-- Meta Pixel -->
+<script>
+  window.META_PIXEL_ID = "1348092986253861";
+</script>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PKNCCWCJ"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <nav id="nav">
+    <a href="index.html" class="nav-logo">Geo<span>Lab</span></a>
+    <ul class="nav-links">
+      <li><a href="./">← Back to Main Page</a></li>
+    </ul>
+    <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-overlay">
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+      <span class="hamburger-bar"></span>
+    </button>
+  </nav>
+
+  <!-- MOBILE MENU OVERLAY -->
+  <div class="mobile-menu-overlay" id="mobile-menu-overlay" aria-hidden="true">
+    <div class="mobile-menu-drawer" id="mobile-menu-drawer">
+      <div class="mobile-menu-header">
+        <a href="index.html" class="mobile-menu-logo">Geo<span>Lab</span></a>
+        <button class="mobile-menu-close" id="mobile-menu-close" aria-label="Close navigation menu">&times;</button>
+      </div>
+      <ul class="mobile-nav-links">
+        <li><a href="index.html#workshops">Online Workshops</a></li>
+        <li><a href="index.html#graz-workshops">Graz Workshops</a></li>
+        <li><a href="index.html#trainers">Trainers</a></li>
+        <li><a href="index.html#about-authors">About</a></li>
+        <li><a href="index.html#video-course">Video Course</a></li>
+        <li><a href="index.html#book">Book</a></li>
+        <li><a href="index.html#partners">Partners</a></li>
+        <li class="mobile-nav-back"><a href="index.html">← Back to Main Page</a></li>
+      </ul>
+      <div class="mobile-menu-footer">
+        © 2025 GeoLab. All rights reserved.
+      </div>
+    </div>
+  </div>
+
+  <section class="workshop-section">
+    <div class="workshop-eyebrow">Workshop 09</div>
+        <h1 class="workshop-title">Turning AI into Your Marketing Assistant</h1>
+    <div class="workshop-details">
+      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Online via Google Meet</span>
+      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>2 Hours</span>
+      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>November 17, 2026</span>
+      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>10:30 AM (CET)</span>
+      <span class="wd-pill"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Working language: English</span>
+    </div>
+    <div class="workshop-lecturer">
+      <span>Lecturer :</span> <a href="lika-moshiashvili.html" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; border-bottom: 1px solid var(--red);">Lika Moshiashvili</a>
+    </div>
+    <div class="workshop-description">Most time of the workshop will be spent on live projects, pressure-testing prompts, and building assets you can actually use. We'll run through the whole chain, from audience research and campaign angles to final ad copy and image generation, so you walk away with an operating system for your marketing work, not just another list of bookmarks.
+
+Topics Covered:
+Picking the right engine for the task: Stop using one chatbot for everything. We’ll map out when to rely on Claude for nuanced copy, where ChatGPT handles structured data better, and when to bring in tools like NotebookLM or Midjourney.
+Writing prompts that don't sound like robots: How to feed models real constraints, voice samples, and background context so you stop getting bland, copy-paste marketing stuff.
+Targeting and messaging in 30 minutes: Pinpoint customer pain points and decision triggers fast, turning raw briefs into concrete value propositions without endless brainstorming loops.
+Shipping campaigns across channels: Draft and iterate on hook-heavy Meta ads, LinkedIn thought leadership, email sequences, and high-impact visual mockups during the session.
+Setting up marketing assistants: Build tailored Custom GPTs, Claude Projects, or Gems configured with your brand’s guidelines so you never have to re-explain the basics.
+Sanity checks and guardrails: Practical methods to catch hallucinations, avoid copyright landmines, and keep sensitive company data private.</div>
+    <p style="font-size: 1.15rem; line-height: 1.8; color: #444; margin-bottom: 2rem;"><strong>Workshop is free of charge.</strong></p>
+    <div class="cta-group">
+      <a href="https://forms.gle/JaFvFmS7boGciJ2t5" target="_blank" rel="noopener noreferrer" class="cta-btn cta-primary">
+        Register for the Workshop <span class="cta-arrow">→</span>
+      </a>
+    </div>
+  </section>
+  
+    <footer>
+    <div class="footer-brand">
+      <div class="footer-logo" style="max-width: 150px; display: block; margin-bottom: 0.5rem;">
+        <a href="https://www.facebook.com/GeoLabEdu" target="_blank" rel="noopener noreferrer">
+          <img src="logo.png" alt="GeoLab Logo" style="width: 100%; height: auto; display: block;">
+        </a>
+      </div>
+      <div class="footer-tagline">The ART of Using Artificial Intelligence</div>
+    </div>
+
+    <div class="footer-contact">
+      <div class="footer-contact-label">Contact Us</div>
+      <a href="mailto:theartofAI@geolab.edu.ge" class="footer-email">theartofAI@geolab.edu.ge</a>
+      <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+        <a href="privacy-policy.html" target="_blank" class="footer-email">Privacy Policy</a>
+        <a href="terms-and-conditions.html" target="_blank" class="footer-email">Terms and Conditions</a>
+      </div>
+    </div>
+
+    <div class="footer-social">
+      <a href="https://www.facebook.com/ArtofAIbyGeoLab/" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+        </svg>
+        Facebook
+      </a>
+      <a href="https://www.linkedin.com/company/111455131" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+          <rect x="2" y="9" width="4" height="12"></rect>
+          <circle cx="4" cy="4" r="2"></circle>
+        </svg>
+        LinkedIn
+      </a>
+      <a href="https://www.instagram.com/theartofusingai" target="_blank" rel="noopener noreferrer" class="social-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+        Instagram
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2025 GeoLab. All rights reserved.</span>
+    </div>
+    </footer>
+
+  <div class="project-disclaimer" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 2rem 5%; background-color: #f5f3f0; color: #0c0c0c; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; text-align: center; border-top: 1px solid rgba(0,0,0,0.08); gap: 1.5rem;">
+    <div class="disclaimer-logo left" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;">
+      <img src="Disclaimer/EN-Funded-by-the-EU-POS.png" alt="Funded by the EU" style="max-height: 45px; width: auto; object-fit: contain;" />
+    </div>
+    <div class="disclaimer-text" style="flex: 1 1 300px; line-height: 1.6; margin: 0 auto;">
+      This webpage has been produced with the assistance of the European Union (EU) and the United Nations Development Programme (UNDP). Its contents are the sole responsibility of the GeoLab and do not necessarily reflect the views of the EU and UNDP.
+    </div>
+    <div class="disclaimer-logo right" style="flex: 0 0 auto; display: flex; align-items: center; justify-content: center;">
+      <img src="Disclaimer/UNDP-Logo.png" alt="UNDP Logo" style="max-height: 55px; width: auto; object-fit: contain;" />
+    </div>
+  </div>
+
+
+
+<div id="cookie-consent" class="cookie-consent" role="dialog" aria-label="Cookie consent">
+  <p class="cookie-consent__text">We use cookies to improve your experience. By clicking Accept, you agree to our use of cookies.</p>
+  <div class="cookie-consent__actions">
+    <button type="button" id="accept-cookies" class="cookie-consent__btn cookie-consent__btn--accept">Accept</button>
+    <button type="button" id="decline-cookies" class="cookie-consent__btn cookie-consent__btn--decline">Decline</button>
+  </div>
+</div>
+<script src="/js/tracking.js"></script>
+<script src="/js/mobile-menu.js" defer></script>
+</body></html>
