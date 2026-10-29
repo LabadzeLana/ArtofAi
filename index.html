@@ -624,6 +624,29 @@
       flex-shrink: 0;
     }
 
+    .graz-card-photo {
+      width: 80px;
+      min-width: 80px;
+      height: 107px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .graz-card-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center center;
+      display: block;
+      filter: grayscale(20%);
+      transition: filter 0.4s, transform 0.4s;
+    }
+
+    .graz-workshop-card:hover .graz-card-photo img {
+      filter: grayscale(0%);
+      transform: scale(1.05);
+    }
+
     @media (max-width: 900px) {
       .graz-workshop-grid {
         grid-template-columns: 1fr;
@@ -1303,6 +1326,94 @@
         grid-template-columns: 1fr;
       }
     }
+
+/* ---------- For Business section ---------- */
+  #for-business { background: var(--light); }
+
+  .biz-intro { margin-top: 1.5rem; font-size: 1rem; line-height: 1.8; color: rgb(85, 85, 85); max-width: 720px; }
+
+  .biz-card {
+    margin-top: 3.5rem;
+    display: grid;
+    grid-template-columns: 1.65fr 1fr;
+    background: var(--white);
+    border: 1px solid rgb(224, 221, 216);
+    position: relative;
+  }
+  .biz-card::before {
+    content: ""; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: var(--red);
+  }
+
+  .biz-main { padding: 3rem 2.75rem; display: flex; flex-direction: column; gap: 1.3rem; }
+  .biz-tag {
+    font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white);
+    background: var(--red); padding: 0.3rem 0.9rem; align-self: flex-start;
+  }
+  .biz-title { font-family: "Bebas Neue", sans-serif; font-size: clamp(2rem, 3.2vw, 2.8rem); letter-spacing: 0.03em; line-height: 1.05; color: var(--black); }
+  .biz-title span { color: var(--red); }
+  .biz-desc { font-size: 0.95rem; line-height: 1.8; color: rgb(85, 85, 85); }
+
+  .biz-subhead {
+    margin-top: 0.8rem; font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red);
+    display: flex; align-items: center; gap: 0.8rem;
+  }
+  .biz-subhead::after { content: ""; flex: 1 1 0%; max-width: 3rem; height: 1px; background: var(--red); }
+
+  .biz-outcomes { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; }
+  .biz-outcome { display: grid; grid-template-columns: 3.2rem 1fr; gap: 1rem; padding: 1.2rem 0; border-top: 1px solid rgb(238, 238, 238); }
+  .biz-outcome:last-child { border-bottom: 1px solid rgb(238, 238, 238); }
+  .biz-outcome-num { font-family: "Bebas Neue", sans-serif; font-size: 2.2rem; line-height: 1; color: rgba(232, 25, 10, 0.35); }
+  .biz-outcome-title { font-weight: 500; font-size: 0.98rem; color: var(--black); margin-bottom: 0.35rem; }
+  .biz-outcome-text { font-size: 0.88rem; line-height: 1.7; color: rgb(102, 102, 102); }
+
+  .biz-compliance {
+    display: flex; gap: 0.9rem; align-items: flex-start;
+    background: rgba(232, 25, 10, 0.06); padding: 1.1rem 1.3rem; margin-top: 0.4rem;
+    font-size: 0.86rem; line-height: 1.7; color: rgb(68, 68, 68);
+  }
+  .biz-compliance svg { flex-shrink: 0; color: var(--red); margin-top: 0.15rem; }
+  .biz-compliance strong { font-weight: 500; color: var(--black); }
+
+  /* right column */
+  .biz-aside { background: #161616; color: var(--white); padding: 3rem 2.5rem; display: flex; flex-direction: column; }
+  .biz-aside-label { font-size: 0.68rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 1.4rem; }
+  .biz-facts { list-style: none; padding: 0; margin: 0; }
+  .biz-fact { display: grid; grid-template-columns: 20px 1fr; gap: 0.9rem; padding: 1rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
+  .biz-fact:first-child { border-top: 1px solid rgba(255, 255, 255, 0.08); }
+  .biz-fact svg { color: var(--red); margin-top: 0.2rem; }
+  .biz-fact-key { font-size: 0.66rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.25rem; }
+  .biz-fact-val { font-size: 0.92rem; line-height: 1.55; }
+  .biz-fact-val a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(245, 243, 239, 0.3); transition: border-color 0.3s, color 0.3s; }
+  .biz-fact-val a:hover { color: var(--red); border-color: var(--red); }
+
+  .biz-cta { margin-top: auto; padding-top: 2.2rem; display: flex; flex-direction: column; gap: 1rem; }
+  .biz-cta .register-btn { justify-content: center; padding: 1.2rem 1.5rem; }
+  .biz-cta-note { font-size: 0.82rem; line-height: 1.6; color: var(--grey); text-align: center; }
+  .biz-cta-note a { color: var(--white); text-decoration: none; border-bottom: 1px solid rgba(245, 243, 239, 0.3); }
+  .biz-cta-note a:hover { color: var(--red); border-color: var(--red); }
+  .biz-btn-outline {
+    display: inline-flex; align-items: center; justify-content: center; gap: 0.8rem;
+    border: 1px solid rgba(245, 243, 239, 0.35); color: var(--white); padding: 1rem 1.5rem;
+    font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; text-decoration: none;
+    transition: border-color 0.3s, color 0.3s;
+  }
+  .biz-btn-outline:hover { border-color: var(--red); color: var(--red); }
+
+  /* partners inside this section */
+  #for-business #partners { background: none; border-top: 1px solid rgba(0, 0, 0, 0.08); margin-top: 5rem; padding-top: 4rem; }
+  #for-business #partners .partners-grid {
+    margin-top: 2rem; display: grid; gap: 1.2rem;
+    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  }
+  #for-business .partner-card { min-width: 0; padding: 1.5rem 1.8rem; height: 100px; }
+  .biz-partners-heading { font-family: "Bebas Neue", sans-serif; font-size: clamp(2rem, 3.2vw, 3rem); line-height: 1; letter-spacing: 0.03em; color: var(--black); }
+
+  @media (max-width: 900px) {
+    .biz-card { grid-template-columns: 1fr; }
+    .biz-main { padding: 2.5rem 1.6rem; }
+    .biz-aside { padding: 2.5rem 1.6rem; }
+    #for-business #partners { margin-top: 3.5rem; padding-top: 3rem; }
+  }
   </style>
 <!-- Google Tag Manager -->
 <script>
@@ -1330,8 +1441,8 @@
       <li><a href="#trainers">Trainers</a></li>
       <li><a href="#about-authors">About</a></li>
       <li><a href="#video-course">Video Course</a></li>
+      <li><a href="#for-business">For Business</a></li>
       <li><a href="#book">Book</a></li>
-      <li><a href="#partners">Partners</a></li>
     </ul>
     <button class="hamburger-toggle" id="hamburger-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="mobile-menu-overlay">
       <span class="hamburger-bar"></span>
@@ -1353,8 +1464,8 @@
         <li><a href="#trainers">Trainers</a></li>
         <li><a href="#about-authors">About</a></li>
         <li><a href="#video-course">Video Course</a></li>
+        <li><a href="#for-business">For Business</a></li>
         <li><a href="#book">Book</a></li>
-        <li><a href="#partners">Partners</a></li>
       </ul>
       <div class="mobile-menu-footer">
         © 2025 GeoLab. All rights reserved.
@@ -1561,7 +1672,7 @@
 
       <!-- Workshop 1 -->
       <a href="graz-workshop-01.html" class="graz-workshop-card reveal" style="text-decoration: none; color: inherit; display: flex;">
-        <div class="graz-card-number">01</div>
+        <div class="graz-card-photo"><img src="Lecturers/Graz.jpeg" alt="Graz, Austria" loading="lazy" /></div>
         <span class="graz-card-tag">In-Person Workshop</span>
         <div class="graz-card-title">Applied AI: Custom Assistants &amp; Agents Workflows &amp; Vibe Coding</div>
         <div class="graz-card-desc">
@@ -1585,7 +1696,7 @@
 
       <!-- Workshop 2 -->
       <a href="graz-workshop-02.html" class="graz-workshop-card reveal" style="text-decoration: none; color: inherit; display: flex;">
-        <div class="graz-card-number">02</div>
+        <div class="graz-card-photo"><img src="Lecturers/Graz.jpeg" alt="Graz, Austria" loading="lazy" /></div>
         <span class="graz-card-tag">In-Person Workshop</span>
         <div class="graz-card-title">Applied AI: Custom Assistants &amp; Agents Workflows &amp; Vibe Coding</div>
         <div class="graz-card-desc">
@@ -1825,6 +1936,151 @@
   </section>
 
 
+  <!-- FOR BUSINESS -->
+  <section id="for-business">
+    <div class="section-label reveal">For Business</div>
+    <h2 class="section-heading reveal">AI Workshop for Your Team.</h2>
+    <p class="biz-intro reveal">
+      A one-day, hands-on intensive for companies and organizations. Your team moves beyond basic prompting
+      and leaves with working AI assistants, automated workflows and mini-apps built around your own processes —
+      no programming experience required.
+    </p>
+
+    <div class="biz-card reveal">
+
+      <!-- LEFT: program -->
+      <div class="biz-main">
+        <span class="biz-tag">In-Person · One-Day Workshop</span>
+        <h3 class="biz-title">Applied AI: Custom Assistants, <span>Agent Workflows</span> &amp; Vibe Coding</h3>
+
+        <p class="biz-desc">
+          Artificial Intelligence has evolved beyond search queries and chatbots into a strategic workflow architect
+          and creative collaborator. Designed for professionals and business teams across diverse fields, this
+          5-hour workshop shows non-technical participants how to build AI assistants trained on organizational
+          knowledge, automate repetitive routines, and rapidly create functional mini-apps through “vibe coding”.
+        </p>
+
+        <div class="biz-subhead">What your team will be able to do</div>
+        <ol class="biz-outcomes">
+          <li class="biz-outcome">
+            <div class="biz-outcome-num">01</div>
+            <div>
+              <div class="biz-outcome-title">Deploy Custom AI Assistants</div>
+              <div class="biz-outcome-text">Build and configure role-specific AI co-pilots integrated with personal, academic, or company-specific documents, research, and guidelines.</div>
+            </div>
+          </li>
+          <li class="biz-outcome">
+            <div class="biz-outcome-num">02</div>
+            <div>
+              <div class="biz-outcome-title">Master &ldquo;Vibe Coding&rdquo; &amp; Process Automation</div>
+              <div class="biz-outcome-text">Build functional mini-apps and automated operational scripts using natural language AI coding tools (such as Google Antigravity, GitHub, etc.) without prior programming experience.</div>
+            </div>
+          </li>
+          <li class="biz-outcome">
+            <div class="biz-outcome-num">03</div>
+            <div>
+              <div class="biz-outcome-title">Automate Operational Workflows</div>
+              <div class="biz-outcome-text">Structure multi-step prompt chains to streamline proposal writing, executive reporting, meeting synthesis, research, and communications.</div>
+            </div>
+          </li>
+        </ol>
+
+        <div class="biz-compliance">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><polyline points="9 12 11 14 15 10"></polyline></svg>
+          <div><strong>Data security &amp; compliance built in.</strong> EU AI Act alignment and enterprise data security are reviewed explicitly, so every assistant, workflow and tool your team builds complies with EU GDPR and corporate confidentiality standards.</div>
+        </div>
+      </div>
+
+      <!-- RIGHT: key facts + contact -->
+      <aside class="biz-aside">
+        <div class="biz-aside-label">At a Glance</div>
+        <ul class="biz-facts">
+          <li class="biz-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div><div class="biz-fact-key">Duration</div><div class="biz-fact-val">5 hours, including a 1-hour break</div></div>
+          </li>
+          <li class="biz-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+            <div><div class="biz-fact-key">Group Size</div><div class="biz-fact-val">10–15 participants per day</div></div>
+          </li>
+          <li class="biz-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div><div class="biz-fact-key">Format</div><div class="biz-fact-val">In-person, hands-on — participants build real tools during the session</div></div>
+          </li>
+          <li class="biz-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="13" rx="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+            <div><div class="biz-fact-key">Requirements</div><div class="biz-fact-val">Wi-Fi-enabled laptop &amp; charger. No coding knowledge needed — basic browser skills are enough.</div></div>
+          </li>
+          <li class="biz-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="8" r="5"></circle><path d="M3 21c0-4 4-7 9-7s9 3 9 7"></path></svg>
+            <div>
+              <div class="biz-fact-key">Program Lead</div>
+              <div class="biz-fact-val"><a href="karl-stoker.html">Prof. Dr. Karl Stocker</a></div>
+            </div>
+          </li>
+          <li class="biz-fact">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+            <div>
+              <div class="biz-fact-key">Lecturers</div>
+              <div class="biz-fact-val">
+                <a href="sandro-asatiani.html">Sandro Asatiani</a>,
+                <a href="lana-labadze.html">Lana Labadze</a>,
+                <a href="sandro-dolidze.html">Sandro Dolidze</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="biz-cta">
+          <a class="register-btn"
+             href="mailto:theartofAI@geolab.edu.ge?subject=Corporate%20Workshop%20Inquiry%20%E2%80%94%20Applied%20AI&amp;body=Hello%20GeoLab%20team%2C%0A%0AWe%20are%20interested%20in%20the%20Applied%20AI%20workshop%20for%20our%20team.%0A%0ACompany%3A%0AContact%20person%3A%0ANumber%20of%20participants%3A%0APreferred%20dates%3A%0A%0AThank%20you%21">
+            Request Details <span class="register-arrow">→</span>
+          </a>
+
+          <!-- Uncomment once the brochure PDF is uploaded (e.g. /docs/applied-ai-business-workshop.pdf)
+          <a class="biz-btn-outline" href="docs/applied-ai-business-workshop.pdf" target="_blank" rel="noopener">
+            Download Brochure (PDF)
+          </a>
+          -->
+
+          <p class="biz-cta-note">
+            Tell us about your team and we’ll send the program, dates and a tailored offer.<br>
+            Or write to <a href="mailto:theartofAI@geolab.edu.ge">theartofAI@geolab.edu.ge</a>
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <!-- PARTNERS (moved here from the old #partners section; id kept for existing links) -->
+    <div id="partners">
+      <div class="section-label reveal">Partners</div>
+      <h3 class="biz-partners-heading reveal">Trusted by Our Corporate Partners</h3>
+      <div class="partners-grid reveal">
+        <a href="https://www.hlw-schroedinger.at/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Die Schrödinger">
+          <img src="partners/lw-schroedinger.png" alt="Die Schrödinger Logo" style="max-height: 75px;">
+        </a>
+        <a href="https://gau.edu.ge/en" target="_blank" rel="noopener noreferrer" class="partner-card" title="GAU — Georgian American University">
+          <img src="partners/GAU.png" alt="GAU — Georgian American University Logo">
+        </a>
+        <a href="https://leavingstone.com/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Leavingstone">
+          <img src="partners/Lvngstone.png" alt="Leavingstone Logo">
+        </a>
+        <a href="https://greenway.ge/en/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Greenway">
+          <img src="partners/Greenway.png" alt="Greenway Logo">
+        </a>
+        <a href="https://aldagi.ge/en" target="_blank" rel="noopener noreferrer" class="partner-card" title="Aldagi">
+          <img src="partners/Aldagi.png" alt="Aldagi Logo">
+        </a>
+        <a href="https://gepha.com/en/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Gepha">
+          <img src="partners/Gepha.png" alt="Gepha Logo">
+        </a>
+        <a href="https://parvusgroup.ge/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Parvus Group">
+          <img src="partners/parvus-group.png" alt="Parvus Group Logo">
+        </a>
+      </div>
+    </div>
+  </section>
+
   <!-- BOOK -->
   <section id="book">
     <div class="book-layout">
@@ -1860,35 +2116,6 @@
           </a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- CORPORATE PARTNERS -->
-  <section id="partners">
-    <div class="section-label reveal">Partners</div>
-    <h2 class="section-heading reveal">Corporate Partners</h2>
-    <div class="partners-grid reveal">
-      <a href="https://www.hlw-schroedinger.at/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Die Schrödinger">
-        <img src="partners/lw-schroedinger.png" alt="Die Schrödinger Logo" style="max-height: 75px;" />
-      </a>
-      <a href="https://gau.edu.ge/en" target="_blank" rel="noopener noreferrer" class="partner-card" title="GAU — Georgian American University">
-        <img src="partners/GAU.png" alt="GAU — Georgian American University Logo" />
-      </a>
-      <a href="https://leavingstone.com/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Leavingstone">
-        <img src="partners/Lvngstone.png" alt="Leavingstone Logo" />
-      </a>
-      <a href="https://greenway.ge/en/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Greenway">
-        <img src="partners/Greenway.png" alt="Greenway Logo" />
-      </a>
-      <a href="https://aldagi.ge/en" target="_blank" rel="noopener noreferrer" class="partner-card" title="Aldagi">
-        <img src="partners/Aldagi.png" alt="Aldagi Logo" />
-      </a>
-      <a href="https://gepha.com/en/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Gepha">
-        <img src="partners/Gepha.png" alt="Gepha Logo" />
-      </a>
-      <a href="https://parvusgroup.ge/" target="_blank" rel="noopener noreferrer" class="partner-card" title="Parvus Group">
-        <img src="partners/parvus-group.png" alt="Parvus Group Logo" />
-      </a>
     </div>
   </section>
 
